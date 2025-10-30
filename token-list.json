@@ -1,0 +1,14 @@
+{
+  "name": "ReflexCoin",
+  "symbol": "RFX",
+  "address": "F5wHn3zfKNuW988UowLrMzWdcCiGanrZmdHRBCdxapDV",
+  "decimals": 9,
+  "logoURI": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/reflexcoin.png",
+  "tags": ["utility", "emotions", "symbolic", "solana"],
+  "extensions": {
+    "website": "https://nelsonruivo.github.io/reflexcoin-metadata/",
+    "twitter": "https://x.com/",
+    "telegram": "https://t.me/",
+    "github": "https://github.com/NelsonRuivo/reflexcoin-metadata"
+  }
+}
