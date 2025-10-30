@@ -1,0 +1,26 @@
+{
+  "name": "ReflexCoin",
+  "symbol": "RFX",
+  "description": "ReflexCoin ($RFX) é um token experimental criado na Solana Devnet, representando o reflexo emocional dos utilizadores — um token simbólico que cresce com base na emoção global do dia.",
+  "image": "https://raw.githubusercontent.com/NRUIVO67/reflexcoin-metadata/main/reflexcoin.png",
+  "attributes": [
+    {
+      "trait_type": "Categoria",
+      "value": "Emoções e Reflexões"
+    },
+    {
+      "trait_type": "Rede",
+      "value": "Solana Devnet"
+    },
+    {
+      "trait_type": "Utilidade",
+      "value": "Token simbólico de expressão emocional"
+    }
+  ],
+  "extensions": {
+    "website": "https://github.com/NRUIVO67",
+    "twitter": "https://x.com/",
+    "telegram": "https://t.me/",
+    "discord": ""
+  }
+}
