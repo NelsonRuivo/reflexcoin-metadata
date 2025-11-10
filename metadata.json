@@ -1,9 +1,19 @@
 {
   "name": "ReflexCoin 2.0",
-  "symbol": "RFX2",
+  "symbol": "RFX",
   "description": "A next-generation psychological value token.",
-  "image": "http://localhost/logo-rfx2.png",
-  "extensions": { "website": "https://reflexcoin.org" },
-  "tags": ["utility-token", "emotional-finance"],
-  "seller_fee_basis_points": 0
+  "image": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/logo.png",
+  "seller_fee_basis_points": 0,
+  "attributes": [],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/logo.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
 }
+
+
