@@ -1,62 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ReflexCoin 2.0 (RFX2)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ReflexCoin 2.0 — RFX2</title>
   <style>
-    body { margin:0; font-family: Arial, sans-serif; background:#0a0a0a; color:white; }
-    header { text-align:center; padding:40px 20px; }
-    img.logo { width:180px; }
-    h1 { font-size:38px; margin-top:20px; }
-    .section { padding:40px 20px; max-width:900px; margin:auto; }
-    .btn { display:inline-block; padding:14px 22px; border-radius:8px; background:#6a00ff; color:white; text-decoration:none; margin:10px 8px; font-size:18px; transition:0.2s; }
-    .btn:hover { background:#8a2dff; }
-    .card { background:#111; padding:22px; border-radius:12px; margin:20px 0; }
-    footer { text-align:center; padding:30px; color:#aaa; }
+    :root{
+      --bg:#071021; --panel:#0d1520; --accent:#8a2dff; --gold:#d4ab5b; --muted:#9aa6b2; --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#02030b);color:#e6eef8}
+    .app{display:flex;height:100vh;overflow:hidden}
+
+    /* Sidebar */
+    .sidebar{width:240px;background:linear-gradient(180deg,#071018,#071220);padding:28px;display:flex;flex-direction:column;gap:12px;border-right:1px solid rgba(255,255,255,0.03)}
+    .brand{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+    .brand img{width:84px;height:84px;object-fit:contain}
+    .brand h1{font-size:18px;margin:0;color:var(--gold)}
+    .nav a{display:block;padding:12px 14px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:600;margin-bottom:6px;background:transparent}
+    .nav a:hover{background:var(--glass);color:#fff}
+
+    /* Main */
+    .main{flex:1;display:flex;flex-direction:column;padding:28px;height:100vh;overflow:hidden}
+    .top{display:flex;align-items:center;gap:24px}
+    .logo-large{display:flex;align-items:center;gap:20px}
+    .logo-large img{width:160px;height:160px}
+    .logo-large h2{margin:0;font-size:34px;color:var(--gold)}
+
+    .row{display:flex;gap:18px;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;box-shadow:0 4px 20px rgba(10,10,12,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .card.small{width:220px}
+    .card.flex{flex:1}
+
+    .emotions{display:flex;gap:10px;flex-wrap:wrap}
+    .emotions button{background:#0b1220;border:1px solid rgba(255,255,255,0.04);padding:10px 14px;border-radius:10px;color:#fff;font-weight:700;cursor:pointer}
+    .emotions button:hover{transform:translateY(-3px);transition:0.18s}
+
+    .actions{display:flex;gap:12px;align-items:center}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+    .footer{margin-top:auto;padding-top:12px;color:var(--muted);font-size:13px}
+
+    /* ensure fits without scroll on desktop */
+    @media (min-width:1000px){
+      .sidebar{height:100vh}
+      .main{height:100vh}
+    }
+
+    /* small screens - stack */
+    @media(max-width:900px){
+      .app{flex-direction:column}
+      .sidebar{width:100%;flex-direction:row;overflow:auto}
+      .logo-large img{width:84px;height:84px}
+    }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo-rfx2.png" alt="ReflexCoin Logo" class="logo" />
-    <h1>ReflexCoin 2.0 — RFX2</h1>
-    <p>A next‑generation emotional-value token built on Solana.</p>
-  </header>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="logo-rfx2.png" alt="logo" />
+        <div>
+          <h1>ReflexCoin 2.0</h1>
+          <div style="color:var(--muted);font-size:12px">RFX2 • Solana</div>
+        </div>
+      </div>
 
-  <section class="section">
-    <h2>Buy / Trade ReflexCoin</h2>
-    <div class="card">
-      <p><strong>Contract Address (Solana):</strong><br>43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z</p>
+      <nav class="nav">
+        <a id="connectBtn" href="#">Connect Phantom</a>
+        <a id="buyBtn" href="#buy">Buy on Raydium</a>
+        <a href="https://t.me/ReflexCoinCommunity" target="_blank">Telegram</a>
+        <a href="https://twitter.com/ReflexCoinRFX2" target="_blank">Twitter</a>
+        <a href="https://github.com/NelsonRuivo/reflexcoin-metadata" target="_blank">GitHub</a>
+      </nav>
 
-      <a class="btn" href="https://phantom.app/ul/browse/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">Open in Phantom Wallet</a>
+      <div style="margin-top:12px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Quick actions</div>
+        <a class="nav" href="#" style="color:#ffd77a;">Express Emotion</a>
+        <a class="nav" href="#" style="color:#ffd77a;">Claim Airdrop (soon)</a>
+      </div>
 
-      <a class="btn" href="https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">Buy on Raydium</a>
+    </aside>
 
-      <a class="btn" href="https://jup.ag/swap/SOL-RFX2" target="_blank">Buy on Jupiter</a>
+    <main class="main">
+      <div class="top">
+        <div class="logo-large">
+          <img src="logo-rfx2.png" alt="logo" />
+          <div>
+            <h2>ReflexCoin 2.0 — RFX2</h2>
+            <div style="color:var(--muted);margin-top:6px">A token that represents collective emotional value on Solana</div>
+          </div>
+        </div>
 
-      <a class="btn" href="https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">View on Solscan</a>
-    </div>
-  </section>
+        <div style="margin-left:auto;display:flex;flex-direction:column;gap:8px">
+          <div class="card small" id="supplyCard">
+            <div style="font-size:12px;color:var(--muted)">Total Supply</div>
+            <div style="font-size:18px;font-weight:800">2,000,000</div>
+          </div>
+          <div class="card small" id="holdersCard">
+            <div style="font-size:12px;color:var(--muted)">Holders</div>
+            <div style="font-size:18px;font-weight:800"><a id="holdersLink" href="https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank" style="color:#fff;text-decoration:none">View on Solscan</a></div>
+          </div>
+        </div>
+      </div>
 
-  <section class="section">
-    <h2>About ReflexCoin 2.0</h2>
-    <div class="card">
-      <p>ReflexCoin 2.0 (RFX2) is a psychological‑value token built on the Solana blockchain. It represents collective emotion, turning human sentiment and daily emotional energy into digital symbolic value.</p>
-      <p>Total supply: <strong>2,000,000 RFX2</strong><br>Launch Date: <strong>05 Nov 2025</strong></p>
-    </div>
-  </section>
+      <div class="row" style="margin-top:22px;align-items:flex-start">
+        <div class="card flex" style="min-width:520px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-size:14px;color:var(--muted)">Express your emotion</div>
+              <div style="font-size:20px;font-weight:800">Daily Emotion Log</div>
+            </div>
+            <div class="actions">
+              <a id="phantomPath" class="btn ghost" href="#">Open in Phantom</a>
+              <a id="buyLink" class="btn" href="https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">Buy RFX2</a>
+            </div>
+          </div>
 
-  <section class="section">
-    <h2>Community</h2>
-    <div class="card">
-      <a class="btn" href="https://t.me/ReflexCoinCommunity" target="_blank">Telegram</a>
-      <a class="btn" href="https://twitter.com/ReflexCoinRFX2" target="_blank">Twitter / X</a>
-      <a class="btn" href="https://github.com/NelsonRuivo/reflexcoin-metadata" target="_blank">GitHub</a>
-    </div>
-  </section>
+          <div style="margin-top:14px">
+            <div class="emotions" id="emotionButtons">
+              <button data-emotion="happy">😊 Happy</button>
+              <button data-emotion="angry">😠 Angry</button>
+              <button data-emotion="sad">😢 Sad</button>
+              <button data-emotion="motivated">🔥 Motivated</button>
+              <button data-emotion="loved">❤️ Loved</button>
+            </div>
 
-  <footer>
-    ReflexCoin 2.0 — © 2025 All Rights Reserved.
-  </footer>
+            <div style="margin-top:14px;color:var(--muted)">Your recorded emotion today: <span id="todayEmotion">—</span></div>
+            <div style="margin-top:10px"><button id="recordBtn" class="btn">Record Emotion</button> <button id="claimBtn" class="btn ghost">Check Airdrop Eligibility</button></div>
+
+            <div style="margin-top:12px;color:var(--muted);font-size:13px">To be eligible for future airdrops users will need to hold a minimum amount of RFX2 and have recorded daily emotions. This page simulates the flow — final airdrop mechanics will be announced.</div>
+          </div>
+        </div>
+
+        <div style="width:320px;display:flex;flex-direction:column;gap:12px">
+          <div class="card">
+            <div style="font-size:13px;color:var(--muted)">Connect Wallet</div>
+            <div style="margin-top:10px"><button id="connectWallet" class="btn">Connect Phantom Wallet</button></div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px">Connected: <span id="pk">Not connected</span></div>
+          </div>
+
+          <div class="card">
+            <div style="font-size:13px;color:var(--muted)">Emotion Stats (today)</div>
+            <div style="margin-top:10px;font-weight:700" id="stats">Happy:0 • Angry:0 • Sad:0 • Motivated:0 • Loved:0</div>
+          </div>
+
+          <div class="card">
+            <div style="font-size:13px;color:var(--muted)">Quick Links</div>
+            <div style="margin-top:8px"><a href="#" style="color:var(--accent)">Add token to Phantom</a></div>
+            <div style="margin-top:6px"><a href="https://explorer.solana.com/address/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z?cluster=mainnet" target="_blank" style="color:var(--muted)">View on Solana Explorer</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">ReflexCoin 2.0 — © 2025. Contract: 43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z</div>
+    </main>
+  </div>
+
+  <script>
+    // Basic client-side logic: Phantom connect, emotion recording (localStorage) and simple airdrop eligibility check
+    const EMO_MINT = '43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z';
+    const MIN_AIRDROP_BALANCE = 10; // example minimum tokens to be eligible (change as needed)
+
+    const pkSpan = document.getElementById('pk');
+    const connectBtn = document.getElementById('connectWallet');
+    const connectLink = document.getElementById('connectBtn');
+    const phantomPath = document.getElementById('phantomPath');
+    const recordBtn = document.getElementById('recordBtn');
+    const claimBtn = document.getElementById('claimBtn');
+    const todayEmotion = document.getElementById('todayEmotion');
+    const emotionButtons = document.getElementById('emotionButtons');
+    const statsEl = document.getElementById('stats');
+
+    function fmtPK(pk){return pk?pk.slice(0,4)+'..'+pk.slice(-4):'Not connected'}
+
+    async function connectPhantom(){
+      if(window.solana && window.solana.isPhantom){
+        try{
+          const resp = await window.solana.connect();
+          const pubkey = resp.publicKey.toString();
+          pkSpan.textContent = fmtPK(pubkey);
+          localStorage.setItem('rfx_pk', pubkey);
+          return pubkey;
+        }catch(e){console.error(e);alert('Connection rejected')}
+      }else{
+        alert('Phantom not installed. Open the site in a browser with Phantom or install the extension.');
+      }
+    }
+
+    connectBtn.addEventListener('click', async (e)=>{e.preventDefault(); await connectPhantom();});
+    connectLink.addEventListener('click', async (e)=>{e.preventDefault(); await connectPhantom();});
+
+    // Emotion selection
+    let selectedEmotion = null;
+    emotionButtons.addEventListener('click',(ev)=>{
+      const b = ev.target.closest('button[data-emotion]');
+      if(!b) return;
+      selectedEmotion = b.dataset.emotion;
+      todayEmotion.textContent = b.textContent;
+    });
+
+    // Load today's emotion
+    function loadStats(){
+      const stats = JSON.parse(localStorage.getItem('rfx_stats')||'{}');
+      const counts = {happy:0,angry:0,sad:0,motivated:0,loved:0};
+      Object.values(stats).forEach(v=>{counts[v] = (counts[v]||0)+1});
+      statsEl.textContent = `Happy:${counts.happy} • Angry:${counts.angry} • Sad:${counts.sad} • Motivated:${counts.motivated} • Loved:${counts.loved}`;
+    }
+
+    loadStats();
+
+    recordBtn.addEventListener('click',()=>{
+      const pk = localStorage.getItem('rfx_pk') || 'anon';
+      if(!selectedEmotion){alert('Select an emotion first');return}
+      const today = new Date().toISOString().slice(0,10);
+      const stats = JSON.parse(localStorage.getItem('rfx_stats')||'{}');
+      stats[today+'_'+pk] = selectedEmotion;
+      localStorage.setItem('rfx_stats', JSON.stringify(stats));
+      alert('Emotion recorded. Thank you.');
+      todayEmotion.textContent = selectedEmotion;
+      loadStats();
+    });
+
+    // Simple airdrop eligibility check (client-side): checks token balance via Solana RPC
+    async function getTokenBalance(pubkey, mint){
+      try{
+        const body = JSON.stringify({
+          jsonrpc:'2.0',id:1,method:'getTokenAccountsByOwner',params:[pubkey,{mint:mint},{encoding:'jsonParsed'}]
+        });
+        const res = await fetch('https://api.mainnet-beta.solana.com',{
+          method:'POST',headers:{'Content-Type':'application/json'},body
+        });
+        const data = await res.json();
+        const accounts = data.result.value;
+        let total=0;
+        for(const a of accounts){
+          const amount = Number(a.account.data.parsed.info.tokenAmount.uiAmount || 0);
+          total += amount;
+        }
+        return total;
+      }catch(e){console.error(e);return 0}
+    }
+
+    claimBtn.addEventListener('click',async()=>{
+      const pk = localStorage.getItem('rfx_pk');
+      if(!pk){alert('Connect your Phantom wallet first');return}
+      claimBtn.textContent = 'Checking...';
+      const balance = await getTokenBalance(pk, EMO_MINT);
+      claimBtn.textContent = 'Check Airdrop Eligibility';
+      if(balance >= MIN_AIRDROP_BALANCE){
+        alert('You are eligible for future airdrops (simulated). Balance: '+balance);
+      }else{
+        alert('Not eligible yet. Hold at least '+MIN_AIRDROP_BALANCE+' RFX2. Detected: '+balance);
+      }
+    });
+
+    // set phantomPath link to open Phantom deep link (add token)
+    document.getElementById('phantomPath').href = 'https://phantom.app/ul/browse/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z';
+    document.getElementById('buyLink').href = 'https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z';
+
+    // Attempt to show connected PK if already present
+    const storedPK = localStorage.getItem('rfx_pk');
+    if(storedPK) pkSpan.textContent = fmtPK(storedPK);
+  </script>
 </body>
 </html>
