@@ -1,19 +1,17 @@
 {
   "name": "ReflexCoin 2.0",
-  "symbol": "RFX",
-  "description": "A next-generation psychological value token.",
-  "image": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/logo.png",
+  "symbol": "RFX2",
+  "description": "ReflexCoin 2.0 (RFX2) é um token psicológico e experimental criado na blockchain Solana. Representa valor emocional simbólico e reflete estados emocionais coletivos.",
+  "image": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/logo-rfx2.png",
   "seller_fee_basis_points": 0,
   "attributes": [],
   "properties": {
     "files": [
       {
-        "uri": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/logo.png",
+        "uri": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/logo-rfx2.png",
         "type": "image/png"
       }
     ],
     "category": "image"
   }
 }
-
-
