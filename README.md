@@ -1,50 +1,61 @@
-# 🌐 ReflexCoin ($RFX)
+🌐 ReflexCoin 2.0 (RFX2)
 
-**ReflexCoin ($RFX)** é um token simbólico construído na **blockchain Solana**, representando as emoções e reflexões coletivas dos utilizadores.  
-Cada ReflexCoin é um espelho digital da energia emocional do dia — uma forma criativa de transformar sentimentos em valor simbólico.
+ReflexCoin 2.0 (RFX2) é um token digital criado na blockchain Solana com o objetivo de representar estados emocionais e valor psicológico simbólico.
+É um token experimental que explora a ligação entre emoção humana, comportamento social e economia digital.
 
----
+📊 Detalhes do Token
 
-## 📊 Detalhes do Token
-- **Nome:** ReflexCoin  
-- **Símbolo:** RFX  
-- **Blockchain:** Solana Mainnet  
-- **Endereço do Mint:** `F5wHn3zfKNuW988UowLrMzWdcCiGanrZmdHRBCdxapDV`  
-- **Decimais:** 9  
-- **Autoridade do Mint:** `CKNeCLEWTw3przrgpDox4vNQqGtCcqaahepzr8giEAmc`  
-- **Imagem:** [reflexcoin.png](https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/reflexcoin.png)  
-- **Metadata JSON:** [reflexcoin.json](https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/reflexcoin.json)
+Nome: ReflexCoin 2.0
 
----
+Símbolo: RFX2
 
-## 🧠 Conceito
-O ReflexCoin é um projeto experimental que transforma **emoções humanas em criptoativos**.
-- Cada utilizador pode “refletir” o seu estado emocional através de um token.  
-- O valor simbólico de cada emoção é determinado pela sua raridade global.  
-- Emoções raras → Tokens mais valiosos 💎
+Blockchain: Solana Mainnet
 
----
+Mint Address: 43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
 
-## 🌐 Links Oficiais
-- **Website:** [https://nelsonruivo.github.io/reflexcoin-metadata](https://nelsonruivo.github.io/reflexcoin-metadata)
-- **Repositório GitHub:** [https://github.com/NelsonRuivo/reflexcoin-metadata](https://github.com/NelsonRuivo/reflexcoin-metadata)
-- **Imagem:** [reflexcoin.png](https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/reflexcoin.png)
-- **JSON Metadata:** [reflexcoin.json](https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/reflexcoin.json)
+Decimais: 9
 
----
+Supply Total: 2.000.000 RFX2
 
-## 💠 Verificação e Listagem
-Este projeto cumpre os requisitos de:
-- ✅ **Phantom Wallet Token Verification**
-- ✅ **CoinGecko Listing Request**
-- ✅ **Solana Token Registry (token-list.json compatível)**
+Autoridade da Mint: 9fyK5f3SXB1VoukAtAN2nHGpFTa7UL3FBxqHimbpRNpS
 
----
+Logo oficial: logo-rfx2.png
 
-## 🪙 ReflexCoin na Blockchain
-🔗 [Ver no Solscan](https://solscan.io/token/F5wHn3zfKNuW988UowLrMzWdcCiGanrZmdHRBCdxapDV)  
-🔗 [Ver no Solana Explorer](https://explorer.solana.com/address/F5wHn3zfKNuW988UowLrMzWdcCiGanrZmdHRBCdxapDV)
+Metadata: metadata.json
 
----
+🧠 Conceito
 
-© 2025 ReflexCoin — desenvolvido por **Nelson Ruivo**  
+ReflexCoin 2.0 procura transformar emoções humanas em valor digital simbólico.
+O token funciona como um “espelho emocional” que reflete:
+
+comportamento social
+
+energia psicológica coletiva
+
+estados emocionais globais
+
+É um projeto experimental e cultural na Solana, com foco em comunidade e expressão emocional.
+
+🌐 Links Oficiais
+
+Website Oficial: https://nelsonruivo.github.io/reflexcoin-metadata/
+
+Solscan: https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
+
+Phantom Add Token: (opcional, posso gerar botão)
+
+GitHub: https://github.com/NelsonRuivo/reflexcoin-metadata
+
+Telegram: https://t.me/ReflexCoinCommunity
+
+Twitter / X: https://twitter.com/ReflexCoinRFX2
+
+💠 Compatibilidade
+
+✔️ Phantom Wallet
+✔️ Solana Token Registry
+✔️ CoinMarketCap submission
+✔️ CoinGecko submission
+✔️ Jupiter
+✔️ Raydium
+✔️ DexScreener
