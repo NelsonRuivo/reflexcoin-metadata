@@ -1,14 +1,14 @@
 {
-  "name": "ReflexCoin",
-  "symbol": "RFX",
-  "address": "F5wHn3zfKNuW988UowLrMzWdcCiGanrZmdHRBCdxapDV",
+  "name": "ReflexCoin 2.0",
+  "symbol": "RFX2",
+  "address": "43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z",
   "decimals": 9,
-  "logoURI": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/reflexcoin.png",
-  "tags": ["utility", "emotions", "symbolic", "solana"],
+  "logoURI": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/logo-rfx2.png",
+  "tags": ["community", "emotional", "experimental", "solana"],
   "extensions": {
     "website": "https://nelsonruivo.github.io/reflexcoin-metadata/",
-    "twitter": "https://x.com/",
-    "telegram": "https://t.me/",
+    "twitter": "https://twitter.com/ReflexCoinRFX2",
+    "telegram": "https://t.me/ReflexCoinCommunity",
     "github": "https://github.com/NelsonRuivo/reflexcoin-metadata"
   }
 }
