@@ -8,11 +8,10 @@
   "properties": {
     "files": [
       {
-        "uri": "https://raw.githubusercontent.com/NelsonRuivo/reflexcoin-metadata/main/logo-rfx2.png",
+        "uri": "https://raw.githubusercontent.com/ReflexCoin2-0-Project/reflexcoin-metadata/main/logo-rfx2.png",
         "type": "image/png"
       }
     ],
     "category": "image"
   }
 }
-
