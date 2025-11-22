@@ -261,7 +261,7 @@
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.12);
-      height: 240px; /* reduced for emotion visibility */
+      height: 150px; /* further reduced so emotions show without scroll */
     }
 
     .chart-frame iframe {
@@ -363,14 +363,14 @@
     /* Floating video bottom RIGHT (fixed) */
     #videoBox {
       position: fixed;
-      bottom: 140px; /* moved up */
-      right: 20px;
-      width: 160px; /* smaller */
-      height: 95px;
+      bottom: 260px; /* moved higher and centered with content */
+      right: 30px;
+      width: 140px;
+      height: 80px;
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.25);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.6);
       cursor: pointer;
       background: #000;
       z-index: 20;
@@ -564,7 +564,7 @@
           </div>
         </div>
         <div class="card-main">
-          <div id="emotionButtons" style="display:flex;flex-wrap:wrap;margin-bottom:10px;">
+          <div id="emotionButtons" style="display:flex;flex-wrap:wrap;margin-bottom:10px;justify-content:center;">
             <button class="emo-btn" data-emotion="happy">😊 Happy</button>
             <button class="emo-btn" data-emotion="angry">😠 Angry</button>
             <button class="emo-btn" data-emotion="sad">😢 Sad</button>
