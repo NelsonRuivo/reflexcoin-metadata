@@ -11,61 +11,57 @@
       --bg-gradient-start: #020617;
       --bg-gradient-mid: #0b1b3d;
       --bg-gradient-end: #030712;
-      --panel: #020617;
-      --panel-soft: #0b1220;
+      --panel-soft: #020617;
       --accent: #a855ff;
-      --accent-soft: rgba(168, 85, 255, 0.18);
+      --accent-soft: rgba(168,85,255,0.18);
       --accent-strong: #c084fc;
       --gold: #f4d47c;
-      --gold-soft: rgba(244, 212, 124, 0.15);
+      --gold-soft: rgba(244,212,124,0.18);
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
       --danger: #f97373;
       --success: #22c55e;
-      --radius: 14px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
       background:
         radial-gradient(circle at top, #1d2972 0, transparent 45%),
         radial-gradient(circle at 10% 80%, #1e40af 0, transparent 55%),
         radial-gradient(circle at 90% 10%, #4c1d95 0, transparent 55%),
         linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
-      color: var(--text-main);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     body {
       display: flex;
-      min-height: 100vh;
     }
 
     .app {
-      display: flex;
       flex: 1;
-      overflow: hidden;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(135deg, rgba(15,23,42,0.92), rgba(3,7,18,0.96));
-      box-shadow: var(--shadow-soft);
+      display: flex;
       margin: 16px;
       border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      border: 1px solid rgba(148,163,184,0.3);
+      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(3,7,18,0.98));
+      box-shadow: 0 22px 60px rgba(0,0,0,0.85);
+      overflow: hidden;
+      min-height: calc(100vh - 32px);
     }
 
     /* SIDEBAR */
     .sidebar {
       width: 250px;
-      background: radial-gradient(circle at top, rgba(30,64,175,0.35), transparent 60%), #020617;
-      border-right: 1px solid rgba(148, 163, 184, 0.25);
       padding: 22px 18px 18px;
+      border-right: 1px solid rgba(148,163,184,0.28);
+      background:
+        radial-gradient(circle at top, rgba(30,64,175,0.4), transparent 60%),
+        #020617;
       display: flex;
       flex-direction: column;
       gap: 18px;
@@ -75,15 +71,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 10px;
     }
 
     .brand-mini img {
       width: 48px;
       height: 48px;
       border-radius: 999px;
-      box-shadow: 0 0 22px rgba(244, 212, 124, 0.7);
-      border: 1px solid rgba(244, 212, 124, 0.7);
+      box-shadow: 0 0 24px rgba(244,212,124,0.8);
+      border: 1px solid rgba(244,212,124,0.9);
     }
 
     .brand-name {
@@ -97,26 +92,24 @@
       color: var(--text-muted);
     }
 
-    .side-section {
-      margin-top: 8px;
-    }
+    .side-section { margin-top: 8px; }
 
     .side-title {
       font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       color: var(--text-muted);
       margin-bottom: 4px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
 
     .side-btn {
       width: 100%;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: radial-gradient(circle at top left, var(--accent-soft), #020617 60%);
-      font-size: 14px;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: radial-gradient(circle at top left, var(--accent-soft), #020617 65%);
       color: var(--text-main);
+      font-size: 14px;
       cursor: pointer;
       margin-bottom: 8px;
       display: inline-flex;
@@ -128,7 +121,7 @@
 
     .side-btn:hover {
       border-color: var(--accent-strong);
-      box-shadow: 0 0 18px rgba(168, 85, 255, 0.6);
+      box-shadow: 0 0 22px rgba(168,85,255,0.9);
       transform: translateY(-1px);
       color: var(--accent-strong);
     }
@@ -138,21 +131,18 @@
       font-size: 11px;
       color: var(--text-muted);
       line-height: 1.4;
-      opacity: 0.85;
     }
 
-    .side-footer span {
-      color: var(--gold);
-    }
+    .side-footer span { color: var(--gold); }
 
-    /* MAIN AREA */
+    /* MAIN */
     .main {
       flex: 1;
       padding: 20px 22px 18px;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       gap: 16px;
+      overflow-y: auto;
     }
 
     .top-header {
@@ -167,8 +157,8 @@
       height: 80px;
       border-radius: 999px;
       overflow: hidden;
-      box-shadow: 0 0 35px rgba(244, 212, 124, 0.8);
-      border: 1px solid rgba(244, 212, 124, 0.85);
+      box-shadow: 0 0 35px rgba(244,212,124,0.85);
+      border: 1px solid rgba(244,212,124,0.9);
     }
 
     .top-header-logo img {
@@ -184,8 +174,8 @@
     }
 
     .top-subtitle {
-      color: var(--text-muted);
       font-size: 13px;
+      color: var(--text-muted);
       margin-top: 4px;
     }
 
@@ -208,19 +198,20 @@
     }
 
     .kpi {
-      background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(17,24,39,1));
+      background: radial-gradient(circle at top, rgba(17,24,39,0.9), transparent 60%),
+                  linear-gradient(135deg, #020617, #020617);
       border-radius: 14px;
       padding: 10px 14px;
       min-width: 130px;
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      box-shadow: 0 12px 26px rgba(15,23,42,0.72);
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.8);
     }
 
     .kpi-label {
       font-size: 11px;
-      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      color: var(--text-muted);
       margin-bottom: 4px;
     }
 
@@ -236,14 +227,13 @@
       margin-top: 2px;
     }
 
-    /* CARDS */
     .card {
-      background: radial-gradient(circle at top, rgba(30,64,175,0.35), transparent 65%),
-                  linear-gradient(135deg, var(--panel-soft), #020617);
+      background: radial-gradient(circle at top, rgba(30,64,175,0.35), transparent 60%),
+                  linear-gradient(135deg, #020617, #020617);
       border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      border: 1px solid rgba(148,163,184,0.35);
       padding: 12px 14px 14px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.9);
     }
 
     .card-header {
@@ -251,33 +241,39 @@
       justify-content: space-between;
       align-items: center;
       gap: 10px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
-    .card-title {
-      font-size: 15px;
-      font-weight: 600;
+    .card-title { font-size: 15px; font-weight: 600; }
+    .card-sub { font-size: 12px; color: var(--text-muted); }
+    .card-main { font-size: 13px; color: var(--text-main); margin-top: 6px; }
+
+    .row-main {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .card-sub {
-      font-size: 12px;
-      color: var(--text-muted);
+    .col-flex { flex: 1; min-width: 260px; }
+
+    .chart-frame {
+      margin-top: 8px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      height: 320px;
     }
 
-    .card-main {
-      font-size: 13px;
-      color: var(--text-main);
-      margin-top: 6px;
+    .chart-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
-    .price-item-label {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .price-item-value {
-      font-size: 14px;
-      font-weight: 600;
+    .row-bottom {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .btn,
@@ -293,8 +289,9 @@
       background: linear-gradient(135deg, var(--accent), var(--gold));
       color: #020617;
       font-weight: 600;
-      border-color: rgba(250, 250, 250, 0.8);
-      box-shadow: 0 0 22px rgba(168, 85, 255, 0.7);
+      border-color: rgba(250,250,250,0.85);
+      box-shadow: 0 0 22px rgba(168,85,255,0.8);
+      padding: 7px 18px;
     }
 
     .btn-primary:hover {
@@ -303,15 +300,16 @@
     }
 
     .btn-ghost {
-      background: rgba(15,23,42,0.8);
+      background: rgba(15,23,42,0.85);
       color: var(--text-main);
       border-color: rgba(148,163,184,0.45);
+      padding: 6px 14px;
     }
 
     .btn-ghost:hover {
       border-color: var(--accent);
       color: var(--accent-strong);
-      box-shadow: 0 0 16px rgba(168,85,255,0.7);
+      box-shadow: 0 0 18px rgba(168,85,255,0.8);
     }
 
     .verify-link {
@@ -322,83 +320,51 @@
       text-decoration: none;
     }
 
-    .verify-link:hover {
-      text-decoration: underline;
-    }
+    .verify-link:hover { text-decoration: underline; }
+
+    .price-item-label { font-size: 11px; color: var(--text-muted); }
+    .price-item-value { font-size: 14px; font-weight: 600; }
 
     /* Emotion buttons */
     .emo-btn {
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: radial-gradient(circle at top left, var(--accent-soft), #020617 65%);
+      border: 1px solid rgba(148,163,184,0.4);
+      background: radial-gradient(circle at top left, var(--accent-soft), #020617 70%);
       color: var(--text-main);
-      padding: 6px 12px;
+      padding: 7px 14px;
       font-size: 13px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      opacity: 0.7;
+      opacity: 0.8;
       transition: all 0.16s ease-out;
+      margin: 3px;
     }
 
     .emo-btn:hover {
       opacity: 1;
-      box-shadow: 0 0 20px rgba(168, 85, 255, 0.85);
+      box-shadow: 0 0 22px rgba(168,85,255,0.9);
       border-color: var(--accent-strong);
     }
 
     .emo-btn.selected {
       opacity: 1;
       border-color: var(--gold);
-      box-shadow: 0 0 25px rgba(244, 212, 124, 0.9);
-    }
-
-    /* Layout rows */
-    .row-main {
-      display: flex;
-      gap: 16px;
-      margin-top: 16px;
-      height: 44vh;
-      min-height: 320px;
-    }
-
-    .col-flex {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .chart-frame {
-      flex: 1;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .chart-frame iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .row-bottom {
-      margin-top: 12px;
-      display: flex;
-      gap: 16px;
+      box-shadow: 0 0 28px rgba(244,212,124,0.95);
     }
 
     .footer {
-      margin-top: 14px;
+      margin-top: 10px;
       font-size: 11px;
       color: var(--text-muted);
     }
 
-    /* Floating video */
+    /* Floating video bottom RIGHT (fixed) */
     #videoBox {
       position: fixed;
       bottom: 20px;
-      left: 20px;
+      right: 20px;
       width: 180px;
       height: 110px;
       border-radius: 14px;
@@ -406,8 +372,8 @@
       border: 1px solid rgba(255,255,255,0.25);
       box-shadow: 0 20px 40px rgba(0,0,0,0.7);
       cursor: pointer;
-      z-index: 20;
       background: #000;
+      z-index: 20;
     }
 
     #videoBox video {
@@ -425,9 +391,9 @@
       height: 100%;
       background: rgba(0,0,0,0.88);
       backdrop-filter: blur(6px);
-      z-index: 30;
       justify-content: center;
       align-items: center;
+      z-index: 30;
     }
 
     #popupVid {
@@ -443,7 +409,6 @@
         flex-direction: column;
         margin: 0;
         border-radius: 0;
-        border: none;
       }
 
       .sidebar {
@@ -451,65 +416,29 @@
         flex-direction: row;
         flex-wrap: wrap;
         gap: 10px;
-        padding: 12px 12px 10px;
         align-items: center;
+        padding: 12px 12px 10px;
       }
 
-      .brand-mini {
-        flex: 1 1 160px;
-      }
-
-      .side-section {
-        flex: 1 1 140px;
-      }
-
-      .main {
-        padding: 14px 12px 18px;
-      }
-
-      .top-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .kpi-row {
-        margin-left: 0;
-      }
-
-      .row-main {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .row-bottom {
-        flex-direction: column;
-      }
-
-      #videoBox {
-        width: 140px;
-        height: 90px;
-      }
+      .brand-mini { flex: 1 1 180px; }
+      .side-section { flex: 1 1 150px; }
+      .main { padding: 14px 12px 16px; }
+      .top-header { flex-direction: column; align-items: flex-start; }
+      .kpi-row { margin-left: 0; }
+      .row-main { flex-direction: column; }
+      .row-bottom { flex-direction: column; }
+      #videoBox { bottom: 16px; right: 16px; width: 140px; height: 90px; }
     }
 
     @media (max-width: 600px) {
-      .sidebar {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .kpi {
-        min-width: 0;
-        width: 100%;
-      }
-
-      .kpi-row {
-        width: 100%;
-      }
+      .sidebar { flex-direction: column; align-items: stretch; }
+      .kpi { width: 100%; }
+      .kpi-row { width: 100%; }
     }
   </style>
 </head>
-
 <body>
+
 <div class="app">
   <!-- SIDEBAR -->
   <aside class="sidebar">
@@ -545,10 +474,10 @@
     </div>
   </aside>
 
-  <!-- MAIN -->
+  <!-- MAIN AREA -->
   <main class="main">
-    <!-- TOP HEADER -->
-    <div class="top-header">
+    <!-- HEADER -->
+    <section class="card" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
       <div class="top-header-logo">
         <img src="logo-rfx2.png" alt="ReflexCoin 2.0" />
       </div>
@@ -559,7 +488,6 @@
           Live price: <span id="priceInline" class="top-price-highlight">Loading...</span>
         </div>
       </div>
-
       <div class="kpi-row">
         <div class="kpi">
           <div class="kpi-label">Total Supply</div>
@@ -577,23 +505,19 @@
           <div class="kpi-sub">Based on DEX</div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ROW: CHART + VERIFY -->
-    <div class="row-main">
-      <!-- CHART LEFT -->
-      <section class="card col-flex">
+    <!-- CHART + VERIFY -->
+    <section class="row-main">
+      <article class="card col-flex">
         <div class="card-header">
           <div>
             <div class="card-title">Live Price &amp; Chart</div>
             <div class="card-sub">Data from Dexscreener / Raydium</div>
           </div>
-          <button id="btnOpenDex" class="btn-ghost" style="padding:6px 14px;">
-            Open full chart ↗
-          </button>
+          <button id="btnOpenDex" class="btn-ghost">Open full chart ↗</button>
         </div>
-
-        <div style="display:flex;align-items:center;gap:20px;font-size:14px;margin:6px 0 10px;">
+        <div style="display:flex;align-items:center;gap:20px;margin-top:4px;font-size:14px;">
           <div>
             <div class="price-item-label">Last price</div>
             <div id="lastPrice" class="price-item-value">N/A</div>
@@ -603,62 +527,72 @@
             <div id="change24" class="price-item-value">N/A</div>
           </div>
         </div>
-
         <div class="chart-frame">
           <iframe
-            id="dexFrame"
             src="https://dexscreener.com/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z?embed=1&theme=dark&trades=0&info=0">
           </iframe>
         </div>
-      </section>
+      </article>
 
-      <!-- VERIFY COLUMN (sem wallet duplicada) -->
-      <section class="card" style="width:330px;max-width:100%;">
+      <aside class="card" style="width:330px;max-width:100%;">
         <div class="card-header">
           <div>
             <div class="card-title">Verify Authenticity</div>
             <div class="card-sub">Always confirm the official mint before trading.</div>
           </div>
         </div>
-
         <div class="card-main">
-          <a href="https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank" class="verify-link">View on Solscan</a><br/>
-          <a href="https://explorer.solana.com/address/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank" class="verify-link">Solana Explorer</a><br/>
-          <a href="https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank" class="verify-link">Swap on Raydium</a><br/>
-          <a href="https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata" target="_blank" class="verify-link">GitHub Metadata</a>
-
+          <a class="verify-link" href="https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">View on Solscan</a><br/>
+          <a class="verify-link" href="https://explorer.solana.com/address/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">Solana Explorer</a><br/>
+          <a class="verify-link" href="https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">Swap on Raydium</a><br/>
+          <a class="verify-link" href="https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata" target="_blank">GitHub Metadata</a>
           <div style="margin-top:10px;font-size:11px;color:var(--text-muted);">
-            Official Mint:<br />
+            Official Mint:<br/>
             43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
           </div>
         </div>
-      </section>
-    </div>
+      </aside>
+    </section>
 
-    <!-- EMOTION SECTION -->
-    <div class="row-bottom">
-      <section class="card col-flex">
+    <!-- EMOTION + INFO -->
+    <section class="row-bottom">
+      <article class="card col-flex">
         <div class="card-header">
           <div>
             <div class="card-title">Daily Emotion Log</div>
-            <div class="card-sub">Used for future airdrop experiments</div>
+            <div class="card-sub">Used for future airdrop experiments.</div>
           </div>
         </div>
         <div class="card-main">
-          <div id="emotionButtons" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+          <div id="emotionButtons" style="display:flex;flex-wrap:wrap;margin-bottom:10px;">
             <button class="emo-btn" data-emotion="happy">😊 Happy</button>
             <button class="emo-btn" data-emotion="angry">😠 Angry</button>
             <button class="emo-btn" data-emotion="sad">😢 Sad</button>
             <button class="emo-btn" data-emotion="motivated">🔥 Motivated</button>
             <button class="emo-btn" data-emotion="loved">❤️ Loved</button>
           </div>
-
-          <button id="btnRecordEmotion" class="btn btn-primary" style="padding:7px 18px;">
-            Record Emotion
-          </button>
+          <button id="btnRecordEmotion" class="btn-primary">Record Emotion</button>
         </div>
-      </section>
-    </div>
+      </article>
+
+      <article class="card col-flex">
+        <div class="card-header">
+          <div>
+            <div class="card-title">How to get RFX2</div>
+            <div class="card-sub">Simple steps to join the experiment.</div>
+          </div>
+        </div>
+        <div class="card-main">
+          <ol style="margin:0;padding-left:18px;font-size:13px;color:var(--text-muted);">
+            <li>Install and open Phantom Wallet.</li>
+            <li>Click "Connect Phantom" and approve.</li>
+            <li>Add RFX2 to Phantom using the sidebar button.</li>
+            <li>Buy RFX2 on Raydium or via the DEX chart.</li>
+            <li>Log your daily emotion for future airdrop experiments.</li>
+          </ol>
+        </div>
+      </article>
+    </section>
 
     <div class="footer">
       ReflexCoin 2.0 — © 2025 • Contract: 43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
@@ -666,7 +600,7 @@
   </main>
 </div>
 
-<!-- FLOATING VIDEO -->
+<!-- FLOATING VIDEO BOTTOM RIGHT -->
 <div id="videoBox">
   <video src="rfx2-video.mp4" autoplay muted loop></video>
 </div>
@@ -682,83 +616,81 @@
   const LOGO_URL = 'https://raw.githubusercontent.com/ReflexCoin2-0-Project/reflexcoin-metadata/main/logo-rfx2.png';
 
   // Video popup
-  document.getElementById("videoBox").onclick = () => {
-    document.getElementById("videoPopup").style.display = "flex";
+  document.getElementById('videoBox').onclick = () => {
+    document.getElementById('videoPopup').style.display = 'flex';
   };
-
-  document.getElementById("videoPopup").onclick = (e) => {
-    if (e.target.id === "videoPopup") {
-      document.getElementById("videoPopup").style.display = "none";
-      document.getElementById("popupVid").pause();
+  document.getElementById('videoPopup').onclick = (e) => {
+    if (e.target.id === 'videoPopup') {
+      document.getElementById('videoPopup').style.display = 'none';
+      document.getElementById('popupVid').pause();
     }
   };
 
-  function shortPk(pk) {
-    return pk ? pk.slice(0, 4) + "..." + pk.slice(-4) : "—";
+  function shortPk(pk){
+    return pk ? pk.slice(0,4) + '...' + pk.slice(-4) : '—';
   }
 
-  async function connectPhantom() {
+  async function connectPhantom(){
     if (!window.solana || !window.solana.isPhantom) {
-      alert("Please install Phantom Wallet extension.");
+      alert('Please install Phantom Wallet extension.');
       return;
     }
     try {
       const resp = await window.solana.connect();
       const pk = resp.publicKey.toString();
-      localStorage.setItem("rfx2_pk", pk);
-      alert("Wallet connected: " + shortPk(pk));
-    } catch (err) {
-      console.error(err);
-      alert("Connection rejected.");
+      localStorage.setItem('rfx2_pk', pk);
+      alert('Wallet connected: ' + shortPk(pk));
+    } catch(e){
+      console.error(e);
+      alert('Connection rejected.');
     }
   }
 
-  function wireButtons() {
-    document.getElementById("btnConnectSide").onclick = connectPhantom;
+  function wireButtons(){
+    document.getElementById('btnConnectSide').onclick = connectPhantom;
 
-    document.getElementById("btnRaydiumSide").onclick = () =>
-      window.open(RAY_LINK, "_blank");
+    document.getElementById('btnRaydiumSide').onclick = () =>
+      window.open(RAY_LINK, '_blank');
 
-    document.getElementById("btnAddTokenSide").onclick = async () => {
+    document.getElementById('btnAddTokenSide').onclick = async () => {
       if (window.solana && window.solana.request) {
         try {
           await window.solana.request({
-            method: "wallet_watchAsset",
+            method: 'wallet_watchAsset',
             params: {
-              type: "spl-token",
+              type: 'spl-token',
               options: {
                 address: MINT,
-                symbol: "RFX2",
+                symbol: 'RFX2',
                 decimals: 9,
                 image: LOGO_URL,
-              },
-            },
+              }
+            }
           });
-        } catch (e) {
-          window.open("https://phantom.app/ul/browse/" + MINT);
+        } catch(e){
+          window.open('https://phantom.app/ul/browse/' + MINT);
         }
       }
     };
 
-    document.getElementById("btnTelegram").onclick = () =>
-      window.open("https://t.me/ReflexCoin2", "_blank");
+    document.getElementById('btnTelegram').onclick = () =>
+      window.open('https://t.me/ReflexCoin2', '_blank');
 
-    document.getElementById("btnTwitter").onclick = () =>
-      window.open("https://x.com/ReflexcoinRfx", "_blank");
+    document.getElementById('btnTwitter').onclick = () =>
+      window.open('https://x.com/ReflexcoinRfx', '_blank');
 
-    document.getElementById("btnGithub").onclick = () =>
-      window.open("https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata", "_blank");
+    document.getElementById('btnGithub').onclick = () =>
+      window.open('https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata', '_blank');
 
-    document.getElementById("btnOpenDex").onclick = () =>
-      window.open("https://dexscreener.com/solana/" + MINT, "_blank");
+    document.getElementById('btnOpenDex').onclick = () =>
+      window.open('https://dexscreener.com/solana/' + MINT, '_blank');
   }
 
-  async function loadDexData() {
+  async function loadDexData(){
     try {
       const res = await fetch(DEX_API);
       const data = await res.json();
       if (!data.pairs || !data.pairs.length) return;
-
       const p = data.pairs[0];
       const priceUsd = Number(p.priceUsd);
       const priceSol = Number(p.priceNative);
@@ -766,58 +698,52 @@
       const change = Number(p.priceChange?.h24);
 
       if (priceUsd) {
-        document.getElementById("priceUsd").textContent = "$" + priceUsd.toFixed(6);
-        document.getElementById("lastPrice").textContent = "$" + priceUsd.toFixed(6);
-        document.getElementById("priceInline").textContent =
-          "$" + priceUsd.toFixed(6) + " · " + (priceSol ? priceSol.toFixed(8) + " SOL" : "");
+        document.getElementById('priceUsd').textContent = '$' + priceUsd.toFixed(6);
+        document.getElementById('lastPrice').textContent = '$' + priceUsd.toFixed(6);
+        document.getElementById('priceInline').textContent =
+          '$' + priceUsd.toFixed(6) + (priceSol ? ' · ' + priceSol.toFixed(8) + ' SOL' : '');
       }
-
       if (priceSol) {
-        document.getElementById("priceSol").textContent = priceSol.toFixed(8) + " SOL";
+        document.getElementById('priceSol').textContent = priceSol.toFixed(8) + ' SOL';
       }
-
       if (fdv) {
-        document.getElementById("mcap").textContent = "$" + fdv.toLocaleString();
+        document.getElementById('mcap').textContent = '$' + fdv.toLocaleString();
       }
-
-      const ch = document.getElementById("change24");
+      const ch = document.getElementById('change24');
       if (change || change === 0) {
-        ch.textContent = (change > 0 ? "+" : "") + change.toFixed(2) + "%";
-        ch.style.color = change >= 0 ? "#22c55e" : "#f97373";
+        ch.textContent = (change > 0 ? '+' : '') + change.toFixed(2) + '%';
+        ch.style.color = change >= 0 ? '#22c55e' : '#f97373';
       }
-    } catch (err) {
-      console.warn("DEX data not ready:", err);
+    } catch(e){
+      console.warn('DEX data not ready:', e);
     }
   }
 
-  const EMO_KEY = "rfx2_emotions";
+  const EMO_KEY = 'rfx2_emotions';
   let selectedEmotion = null;
 
-  document.getElementById("emotionButtons").onclick = (e) => {
-    const btn = e.target.closest("button");
+  document.getElementById('emotionButtons').onclick = (e) => {
+    const btn = e.target.closest('button');
     if (!btn) return;
-
-    document.querySelectorAll(".emo-btn").forEach((b) => b.classList.remove("selected"));
-    btn.classList.add("selected");
+    document.querySelectorAll('.emo-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
     selectedEmotion = btn.dataset.emotion;
   };
 
-  document.getElementById("btnRecordEmotion").onclick = () => {
+  document.getElementById('btnRecordEmotion').onclick = () => {
     if (!selectedEmotion) {
-      alert("Choose an emotion first.");
+      alert('Choose an emotion first.');
       return;
     }
-
-    const data = JSON.parse(localStorage.getItem(EMO_KEY) || "{}");
-    const today = new Date().toISOString().slice(0, 10);
-    const pk = localStorage.getItem("rfx2_pk") || "anon";
-    data[today + "_" + pk] = selectedEmotion;
-
+    const data = JSON.parse(localStorage.getItem(EMO_KEY) || '{}');
+    const today = new Date().toISOString().slice(0,10);
+    const pk = localStorage.getItem('rfx2_pk') || 'anon';
+    data[today + '_' + pk] = selectedEmotion;
     localStorage.setItem(EMO_KEY, JSON.stringify(data));
-    alert("Emotion saved locally.");
+    alert('Emotion saved locally.');
   };
 
-  (function init() {
+  (function init(){
     wireButtons();
     loadDexData();
   })();
