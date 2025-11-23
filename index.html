@@ -391,6 +391,56 @@
       color: var(--text-muted);
     }
 
+    /* MODAL PHANTOM MOBILE */
+    #phantomModal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      display: none; /* mostrado via JS */
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+    }
+    #phantomModalInner {
+      background: radial-gradient(circle at top, rgba(30,64,175,0.5), #020617);
+      border-radius: 18px;
+      border: 1px solid rgba(244,212,124,0.6);
+      padding: 20px 18px 18px;
+      max-width: 320px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(244,212,124,0.9);
+    }
+    #phantomModalTitle {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    #phantomModalText {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    #phantomModalBtn {
+      width: 100%;
+      border-radius: 999px;
+      padding: 9px 16px;
+      border: 1px solid rgba(250,250,250,0.9);
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      color: #020617;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 22px rgba(244,212,124,0.9);
+      font-size: 14px;
+    }
+    #phantomModalNote {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
     /* RESPONSIVO MOBILE */
     @media (max-width: 960px) {
       html, body {
@@ -430,6 +480,20 @@
   </style>
 </head>
 <body>
+
+<!-- MODAL OBRIGATÓRIO PARA MOBILE FORA DA PHANTOM -->
+<div id="phantomModal">
+  <div id="phantomModalInner">
+    <div id="phantomModalTitle">Open inside Phantom Wallet</div>
+    <div id="phantomModalText">
+      To connect your wallet and buy RFX2 on mobile, this page must be opened inside the Phantom app.
+    </div>
+    <button id="phantomModalBtn">Open in Phantom Wallet</button>
+    <div id="phantomModalNote">
+      If you don't have Phantom yet, install it first from the App Store or Google Play, then try again.
+    </div>
+  </div>
+</div>
 
 <div class="app">
   <!-- SIDEBAR -->
@@ -592,8 +656,8 @@
         <div class="card-main">
           <ol style="margin:0;padding-left:18px;font-size:13px;color:var(--text-muted);">
             <li>Install and open Phantom Wallet.</li>
-            <li>On mobile: open this site inside Phantom or tap “Open Phantom to Buy”.</li>
-            <li>Add RFX2 to Phantom using the sidebar button.</li>
+            <li>On mobile, open this page inside Phantom.</li>
+            <li>Connect your wallet and add RFX2.</li>
             <li>Buy RFX2 on Raydium (SOL → RFX2).</li>
             <li>Log your daily emotion for future airdrop experiments.</li>
           </ol>
@@ -620,14 +684,19 @@
     );
   }
 
+  function isPhantomInApp() {
+    // Phantom in-app browser geralmente adiciona "Phantom" ao userAgent
+    return /Phantom/i.test(navigator.userAgent || '');
+  }
+
   function shortPk(pk){
     return pk ? pk.slice(0,4) + '...' + pk.slice(-4) : '—';
   }
 
-  // DESKTOP: ligação Phantom extension
-  async function connectPhantomDesktop(){
+  // DESKTOP (e também dentro da Phantom in-app): ligação Phantom
+  async function connectPhantomStandard(){
     if (!window.solana || !window.solana.isPhantom) {
-      alert('Please install the Phantom Wallet browser extension.');
+      alert('Phantom Wallet not detected in this browser.');
       return;
     }
     try {
@@ -641,6 +710,11 @@
     }
   }
 
+  function showPhantomModal() {
+    const modal = document.getElementById('phantomModal');
+    if (modal) modal.style.display = 'flex';
+  }
+
   function wireButtons(){
     const btnConnect = document.getElementById('btnConnectSide');
     const btnRay = document.getElementById('btnRaydiumSide');
@@ -649,47 +723,44 @@
     const btnTw = document.getElementById('btnTwitter');
     const btnGh = document.getElementById('btnGithub');
     const btnDex = document.getElementById('btnOpenDex');
+    const modalBtn = document.getElementById('phantomModalBtn');
 
     const mobile = isMobile();
+    const inPhantom = isPhantomInApp();
+
+    // BOTÃO MODAL
+    if (modalBtn) {
+      modalBtn.onclick = () => {
+        const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(APP_URL);
+        window.location.href = url;
+      };
+    }
+
+    // MOSTRAR MODAL AUTOMÁTICO: mobile + fora da Phantom
+    if (mobile && !inPhantom) {
+      showPhantomModal();
+    }
 
     // CONNECT PHANTOM
     if (btnConnect) {
-      if (mobile) {
-        btnConnect.textContent = 'Open Phantom to Buy RFX2';
-        btnConnect.onclick = () => {
-          // Abre a app Phantom já com a Raydium swap aberta
-          const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(RAY_LINK);
-          window.location.href = url;
-        };
+      if (mobile && !inPhantom) {
+        // Se por algum motivo chegarem aqui sem modal (fallback)
+        btnConnect.onclick = showPhantomModal;
       } else {
-        btnConnect.onclick = connectPhantomDesktop;
+        btnConnect.onclick = connectPhantomStandard;
       }
     }
 
-    // BUY ON RAYDIUM
+    // BUY ON RAYDIUM – nunca abre Phantom, só Raydium
     if (btnRay) {
-      if (mobile) {
-        btnRay.onclick = () => {
-          const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(RAY_LINK);
-          window.location.href = url;
-        };
-      } else {
-        btnRay.onclick = () => window.open(RAY_LINK, '_blank');
-      }
+      btnRay.onclick = () => {
+        window.open(RAY_LINK, '_blank');
+      };
     }
 
     // ADD RFX2 TO PHANTOM
     if (btnAdd) {
       btnAdd.onclick = async () => {
-        if (mobile) {
-          // No mobile: abrir Phantom apontando para a página do token (Solscan)
-          const tokenUrl = 'https://solscan.io/token/' + MINT;
-          const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(tokenUrl);
-          window.location.href = url;
-          return;
-        }
-
-        // Desktop: tentar adicionar via wallet_watchAsset
         if (window.solana && window.solana.request) {
           try {
             await window.solana.request({
@@ -706,10 +777,14 @@
             });
           } catch(e){
             console.error(e);
-            window.open('https://phantom.app/ul/browse?url=' + encodeURIComponent('https://solscan.io/token/' + MINT));
+            alert('Could not add RFX2 automatically. You can also add it by searching the mint in Phantom: ' + MINT);
           }
         } else {
-          alert('Please open this site in a Phantom-enabled browser (desktop).');
+          if (mobile && !inPhantom) {
+            showPhantomModal();
+          } else {
+            alert('Phantom Wallet not detected in this browser.');
+          }
         }
       };
     }
