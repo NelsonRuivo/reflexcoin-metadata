@@ -592,7 +592,7 @@
         <div class="card-main">
           <ol style="margin:0;padding-left:18px;font-size:13px;color:var(--text-muted);">
             <li>Install and open Phantom Wallet.</li>
-            <li>Click "Connect Phantom" and approve.</li>
+            <li>Click "Connect Phantom" (or "Open in Phantom App" on mobile).</li>
             <li>Add RFX2 to Phantom using the sidebar button.</li>
             <li>Buy RFX2 on Raydium or via the DEX chart.</li>
             <li>Log your daily emotion for future airdrop experiments.</li>
@@ -612,14 +612,29 @@
   const DEX_API = 'https://api.dexscreener.com/latest/dex/tokens/' + MINT;
   const RAY_LINK = 'https://raydium.io/swap/?inputMint=sol&outputMint=' + MINT;
   const LOGO_URL = 'https://raw.githubusercontent.com/ReflexCoin2-0-Project/reflexcoin-metadata/main/logo-rfx2.png';
+  const APP_URL = 'https://reflexcoin2-0-project.github.io/reflexcoin-metadata/';
+
+  function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(
+      navigator.userAgent || navigator.vendor || window.opera
+    );
+  }
 
   function shortPk(pk){
     return pk ? pk.slice(0,4) + '...' + pk.slice(-4) : '—';
   }
 
   async function connectPhantom(){
+    // MOBILE → abrir app Phantom em vez de extensão
+    if (isMobile()) {
+      const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(APP_URL);
+      window.location.href = url;
+      return;
+    }
+
+    // DESKTOP → usar extensão Phantom normalmente
     if (!window.solana || !window.solana.isPhantom) {
-      alert('Please install Phantom Wallet extension.');
+      alert('Please install the Phantom Wallet browser extension.');
       return;
     }
     try {
@@ -635,43 +650,62 @@
 
   function wireButtons(){
     const btnConnect = document.getElementById('btnConnectSide');
-    if (btnConnect) btnConnect.onclick = connectPhantom;
-
     const btnRay = document.getElementById('btnRaydiumSide');
-    if (btnRay) btnRay.onclick = () => window.open(RAY_LINK, '_blank');
-
     const btnAdd = document.getElementById('btnAddTokenSide');
-    if (btnAdd) btnAdd.onclick = async () => {
-      if (window.solana && window.solana.request) {
-        try {
-          await window.solana.request({
-            method: 'wallet_watchAsset',
-            params: {
-              type: 'spl-token',
-              options: {
-                address: MINT,
-                symbol: 'RFX2',
-                decimals: 9,
-                image: LOGO_URL,
-              }
-            }
-          });
-        } catch(e){
-          window.open('https://phantom.app/ul/browse/' + MINT);
-        }
-      }
-    };
-
     const btnTg = document.getElementById('btnTelegram');
-    if (btnTg) btnTg.onclick = () => window.open('https://t.me/ReflexCoin2', '_blank');
-
     const btnTw = document.getElementById('btnTwitter');
-    if (btnTw) btnTw.onclick = () => window.open('https://x.com/ReflexcoinRfx', '_blank');
-
     const btnGh = document.getElementById('btnGithub');
-    if (btnGh) btnGh.onclick = () => window.open('https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata', '_blank');
-
     const btnDex = document.getElementById('btnOpenDex');
+
+    const mobile = isMobile();
+
+    if (btnConnect) {
+      if (mobile) btnConnect.textContent = 'Open in Phantom App';
+      btnConnect.onclick = connectPhantom;
+    }
+
+    if (btnRay) {
+      btnRay.onclick = () => window.open(RAY_LINK, '_blank');
+    }
+
+    if (btnAdd) {
+      btnAdd.onclick = async () => {
+        // MOBILE: abrir Phantom com a página do token (por ex. Solscan)
+        if (mobile) {
+          const tokenUrl = 'https://solscan.io/token/' + MINT;
+          const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(tokenUrl);
+          window.location.href = url;
+          return;
+        }
+
+        // DESKTOP: tentar usar wallet_watchAsset
+        if (window.solana && window.solana.request) {
+          try {
+            await window.solana.request({
+              method: 'wallet_watchAsset',
+              params: {
+                type: 'spl-token',
+                options: {
+                  address: MINT,
+                  symbol: 'RFX2',
+                  decimals: 9,
+                  image: LOGO_URL,
+                }
+              }
+            });
+          } catch(e){
+            console.error(e);
+            window.open('https://phantom.app/ul/browse?url=' + encodeURIComponent('https://solscan.io/token/' + MINT));
+          }
+        } else {
+          alert('Please open this site in a Phantom-enabled browser.');
+        }
+      };
+    }
+
+    if (btnTg) btnTg.onclick = () => window.open('https://t.me/ReflexCoin2', '_blank');
+    if (btnTw) btnTw.onclick = () => window.open('https://x.com/ReflexcoinRfx', '_blank');
+    if (btnGh) btnGh.onclick = () => window.open('https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata', '_blank');
     if (btnDex) btnDex.onclick = () => window.open('https://dexscreener.com/solana/' + MINT, '_blank');
   }
 
