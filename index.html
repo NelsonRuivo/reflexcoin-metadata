@@ -592,9 +592,9 @@
         <div class="card-main">
           <ol style="margin:0;padding-left:18px;font-size:13px;color:var(--text-muted);">
             <li>Install and open Phantom Wallet.</li>
-            <li>Click "Connect Phantom" (or "Open in Phantom App" on mobile).</li>
+            <li>On mobile: open this site inside Phantom or tap “Open Phantom to Buy”.</li>
             <li>Add RFX2 to Phantom using the sidebar button.</li>
-            <li>Buy RFX2 on Raydium or via the DEX chart.</li>
+            <li>Buy RFX2 on Raydium (SOL → RFX2).</li>
             <li>Log your daily emotion for future airdrop experiments.</li>
           </ol>
         </div>
@@ -624,15 +624,8 @@
     return pk ? pk.slice(0,4) + '...' + pk.slice(-4) : '—';
   }
 
-  async function connectPhantom(){
-    // MOBILE → abrir app Phantom em vez de extensão
-    if (isMobile()) {
-      const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(APP_URL);
-      window.location.href = url;
-      return;
-    }
-
-    // DESKTOP → usar extensão Phantom normalmente
+  // DESKTOP: ligação Phantom extension
+  async function connectPhantomDesktop(){
     if (!window.solana || !window.solana.isPhantom) {
       alert('Please install the Phantom Wallet browser extension.');
       return;
@@ -659,26 +652,44 @@
 
     const mobile = isMobile();
 
+    // CONNECT PHANTOM
     if (btnConnect) {
-      if (mobile) btnConnect.textContent = 'Open in Phantom App';
-      btnConnect.onclick = connectPhantom;
+      if (mobile) {
+        btnConnect.textContent = 'Open Phantom to Buy RFX2';
+        btnConnect.onclick = () => {
+          // Abre a app Phantom já com a Raydium swap aberta
+          const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(RAY_LINK);
+          window.location.href = url;
+        };
+      } else {
+        btnConnect.onclick = connectPhantomDesktop;
+      }
     }
 
+    // BUY ON RAYDIUM
     if (btnRay) {
-      btnRay.onclick = () => window.open(RAY_LINK, '_blank');
+      if (mobile) {
+        btnRay.onclick = () => {
+          const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(RAY_LINK);
+          window.location.href = url;
+        };
+      } else {
+        btnRay.onclick = () => window.open(RAY_LINK, '_blank');
+      }
     }
 
+    // ADD RFX2 TO PHANTOM
     if (btnAdd) {
       btnAdd.onclick = async () => {
-        // MOBILE: abrir Phantom com a página do token (ex: Solscan)
         if (mobile) {
+          // No mobile: abrir Phantom apontando para a página do token (Solscan)
           const tokenUrl = 'https://solscan.io/token/' + MINT;
           const url = 'https://phantom.app/ul/browse?url=' + encodeURIComponent(tokenUrl);
           window.location.href = url;
           return;
         }
 
-        // DESKTOP: tentar usar wallet_watchAsset
+        // Desktop: tentar adicionar via wallet_watchAsset
         if (window.solana && window.solana.request) {
           try {
             await window.solana.request({
@@ -698,7 +709,7 @@
             window.open('https://phantom.app/ul/browse?url=' + encodeURIComponent('https://solscan.io/token/' + MINT));
           }
         } else {
-          alert('Please open this site in a Phantom-enabled browser.');
+          alert('Please open this site in a Phantom-enabled browser (desktop).');
         }
       };
     }
