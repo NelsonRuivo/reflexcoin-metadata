@@ -1,61 +1,78 @@
-🌐 ReflexCoin 2.0 (RFX2)
+# 🌐 ReflexCoin 2.0 (RFX2)
 
-ReflexCoin 2.0 (RFX2) é um token digital criado na blockchain Solana com o objetivo de representar estados emocionais e valor psicológico simbólico.
-É um token experimental que explora a ligação entre emoção humana, comportamento social e economia digital.
+ReflexCoin 2.0 (RFX2) is a digital token on the Solana blockchain that explores the connection between human emotion, social behaviour and digital value.  
+It is positioned as the **first emotional-value token on Solana** — a symbolic mirror of daily emotional energy.
 
-📊 Detalhes do Token
+---
 
-Nome: ReflexCoin 2.0
+## 📊 Token Details
 
-Símbolo: RFX2
+- **Name:** ReflexCoin 2.0  
+- **Symbol:** RFX2  
+- **Blockchain:** Solana Mainnet  
+- **Mint Address:** `43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z`  
+- **Decimals:** 9  
+- **Total Supply:** 2,000,000 RFX2 (fixed supply)  
+- **Mint Authority:** `9fyK5f3SXB1VoukAtAN2nHGpFTa7UL3FBxqHimbpRNpS` (now disabled for minting)  
+- **Official Logo:** `logo-rfx2.png`  
+- **Metadata File:** `metadata.json`
 
-Blockchain: Solana Mainnet
+---
 
-Mint Address: 43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
+## 🧠 Concept
 
-Decimais: 9
+ReflexCoin 2.0 aims to turn human emotions into symbolic digital value.
 
-Supply Total: 2.000.000 RFX2
+The project acts as an **“emotional mirror”**, reflecting:
 
-Autoridade da Mint: 9fyK5f3SXB1VoukAtAN2nHGpFTa7UL3FBxqHimbpRNpS
+- social behaviour  
+- collective psychological energy  
+- global emotional states  
 
-Logo oficial: logo-rfx2.png
+The long-term vision is to experiment with:
 
-Metadata: metadata.json
+- **daily emotion logging**
+- **emotion-based airdrop experiments**
+- **sentiment-driven community features**
 
-🧠 Conceito
+It is a cultural and social experiment built on Solana, with a strong focus on community and emotional expression.
 
-ReflexCoin 2.0 procura transformar emoções humanas em valor digital simbólico.
-O token funciona como um “espelho emocional” que reflete:
+---
 
-comportamento social
+## 🌐 Official Links
 
-energia psicológica coletiva
+- **Website:**  
+  https://reflexcoin2-0-project.github.io/reflexcoin-metadata/
 
-estados emocionais globais
+- **Solscan:**  
+  https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
 
-É um projeto experimental e cultural na Solana, com foco em comunidade e expressão emocional.
+- **Solana Explorer:**  
+  https://explorer.solana.com/address/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
 
-🌐 Links Oficiais
+- **Raydium (Swap):**  
+  https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
 
-Website Oficial: https://nelsonruivo.github.io/reflexcoin-metadata/
+- **Dexscreener Chart:**  
+  https://dexscreener.com/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
 
-Solscan: https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z
+- **GitHub Repository:**  
+  https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata
 
-Phantom Add Token: (opcional, posso gerar botão)
+- **Telegram (Community):**  
+  https://t.me/ReflexCoin2
 
-GitHub: https://github.com/NelsonRuivo/reflexcoin-metadata
+- **X / Twitter:**  
+  https://x.com/ReflexcoinRfx
 
-Telegram: https://t.me/ReflexCoinCommunity
+---
 
-Twitter / X: https://x.com/reflexcoinrfx?s=11
+## 💠 Wallet Compatibility
 
-💠 Compatibilidade
+- ✅ Phantom Wallet  
+- ✅ Solana SPL standard  
+- ✅ DEXs: Raydium, Jupiter (via mint)  
+- ✅ Analytics: Dexscreener, Solscan, Solana Explorer  
 
-✔️ Phantom Wallet
-✔️ Solana Token Registry
-✔️ CoinMarketCap submission
-✔️ CoinGecko submission
-✔️ Jupiter
-✔️ Raydium
-✔️ DexScreener
+Always verify the official mint address before trading:  
+`43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z`.
