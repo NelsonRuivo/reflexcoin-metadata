@@ -48,7 +48,7 @@ GitHub: https://github.com/NelsonRuivo/reflexcoin-metadata
 
 Telegram: https://t.me/ReflexCoinCommunity
 
-Twitter / X: https://twitter.com/ReflexCoinRFX2
+Twitter / X: https://x.com/reflexcoinrfx?s=11
 
 💠 Compatibilidade
 
