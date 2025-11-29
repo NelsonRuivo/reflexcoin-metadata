@@ -6,9 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <style>
-/* ===========================================================
-   BASE
-   =========================================================== */
 :root {
   --bg: radial-gradient(circle at top, #0b1120, #020617 80%);
   --panel: radial-gradient(circle at top, #111827, #020617);
@@ -18,18 +15,18 @@
   --gold: #facc6b;
 }
 
-* {
-  box-sizing: border-box;
-}
+/* RESET */
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow: hidden; /* SEM SCROLL */
+  overflow: hidden;        /* sem scroll no desktop */
 }
 
+/* LAYOUT GERAL */
 .app {
   display: flex;
   height: 100vh;
@@ -37,9 +34,7 @@ body {
   gap: 20px;
 }
 
-/* ===========================================================
-   SIDEBAR
-   =========================================================== */
+/* SIDEBAR ESQUERDA */
 .sidebar {
   width: 280px;
   background: radial-gradient(circle at top left, #111827, #020617);
@@ -50,19 +45,18 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-
 .sidebar h1 {
   font-size: 36px;
   font-weight: 800;
   color: var(--gold);
   margin: 0;
+  line-height: 1.05;
   text-shadow: 0 0 18px rgba(250,204,21,0.6);
 }
 .sidebar p {
-  color: var(--muted);
   margin: 6px 0 16px;
+  color: var(--muted);
 }
-
 .sidebar button {
   width: 100%;
   padding: 13px 0;
@@ -70,8 +64,9 @@ body {
   border-radius: 999px;
   border: 1px solid #4b5563;
   background: linear-gradient(135deg,#312e81,#1f2937);
-  color: white;
+  color: #f9fafb;
   cursor: pointer;
+  font-size: 14px;
   transition: 0.15s;
 }
 .sidebar button:hover {
@@ -79,15 +74,20 @@ body {
   border-color: #6366f1;
   box-shadow: 0 0 18px rgba(99,102,241,0.6);
 }
-
 .sidebar-bottom {
   font-size: 12px;
   color: var(--muted);
 }
 
-/* ===========================================================
-   HEADER SUPERIOR
-   =========================================================== */
+/* MAIN AREA */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* HEADER SUPERIOR */
 .header {
   height: 110px;
   border-radius: 18px;
@@ -98,26 +98,24 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-
 .header-left {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-
 .header-logo {
   width: 74px;
   height: 74px;
   border-radius: 24px;
   overflow: hidden;
-  background: radial-gradient(circle, #38bdf8, #1d4ed8);
+  background: radial-gradient(circle,#38bdf8,#1d4ed8);
   box-shadow: 0 0 30px rgba(56,189,248,0.6);
 }
 .header-logo img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
-
 .header-title-main {
   font-size: 24px;
   font-weight: 700;
@@ -127,61 +125,68 @@ body {
   font-size: 13px;
   color: var(--muted);
 }
-
 .header-metrics {
   display: flex;
   gap: 32px;
 }
-.metric-label { font-size: 13px;color:var(--muted);}
-.metric-value { font-size:20px;font-weight:700;color:var(--gold); }
+.metric-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+.metric-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+}
 
-/* ===========================================================
-   CONTENT ZONE
-   =========================================================== */
-.main { flex: 1; display: flex; flex-direction: column; gap: 16px; }
-
+/* LINHA DO MEIO: PAINEL CENTRAL + VERIFY RIGHT */
 .content-row {
   display: flex;
   gap: 16px;
-  height: 480px; /* altura exata para 1080p */
+  flex: 1;
 }
 
-/* ===========================================================
-   PAINEL CENTRAL
-   =========================================================== */
+/* PAINEL CENTRAL (EMOÇÕES) */
 .center-panel {
   flex: 1;
   border-radius: 20px;
   background: var(--panel);
   border: 1px solid var(--border);
-  padding: 24px;
-  position: relative;
-  padding-bottom: 140px; /* espaço p/ Dex + botão */
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
 }
-
 .center-panel h2 {
   margin: 0;
   font-size: 24px;
   color: var(--gold);
 }
-.center-panel p { color: #d1d5db;margin:10px 0 18px; }
-
+.center-panel p {
+  margin: 10px 0 18px;
+  font-size: 14px;
+  color: #d1d5db;
+}
 .emotion-row {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 .emotion-row button {
   padding: 8px 18px;
   border-radius: 999px;
   border: 1px solid #374151;
   background: #111827;
+  color: var(--text);
+  font-size: 14px;
   cursor: pointer;
+  transition: 0.15s;
 }
-
+.emotion-row button:hover {
+  background: #1f2937;
+}
 .emotion-confirm {
-  text-align:center;
-  margin-top:18px;
+  margin-top: 18px;
+  text-align: center;
 }
 .record-btn {
   padding: 12px 28px;
@@ -192,243 +197,267 @@ body {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 0 18px rgba(236,72,153,0.4);
+}
+.record-btn:hover {
+  box-shadow: 0 0 22px rgba(250,204,21,0.8);
+}
+.center-note {
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--muted);
 }
 
-/* ===========================================================
-   DEX MINI (ALINHADO)
-   =========================================================== */
-.dex-mini {
-  position: absolute;
-  left: 20px;
-  bottom: 95px; /* alinhado */
-  width: 320px;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid var(--border);
-}
-.dex-mini iframe {
-  width:100%;height:100%;border:none;
-}
-
-/* ===========================================================
-   PAINEL DIREITO
-   =========================================================== */
+/* VERIFY AUTHENTICITY (DIREITA, EM CIMA) */
 .right-panel {
   width: 330px;
-  margin-top: 65px; /* alinhado ao painel central */
+  display: flex;
+  flex-direction: column;
 }
-
 .verify-card {
+  flex: 1;
   border-radius: 20px;
   background: var(--panel);
   border: 1px solid var(--border);
-  padding: 22px;
+  padding: 22px 20px;
+  font-size: 13px;
 }
-.verify-card h3 { margin:0;font-size:20px;color:var(--gold); }
-.verify-card a { color:#93c5fd;display:block;margin-top:4px;text-decoration:none; }
-
-.video-card {
-  margin-top: -80px; /* alinhado com Dex */
-  height: 180px;
-  border-radius:18px;
-  border:1px solid #fbbf24;
-  box-shadow:0 0 25px rgba(251,191,36,0.6);
-  overflow:hidden;
+.verify-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: var(--gold);
 }
-.video-card video { width:100%;height:100%;object-fit:cover; }
-
-/* ===========================================================
-   BOTTOM ROW
-   =========================================================== */
-.bottom-row {
-  display:flex;
-  justify-content:space-between;
-  margin-top:-10px;
-  height:110px;
+.verify-card p { margin: 0 0 8px; color: #d1d5db; }
+.verify-card a {
+  display: block;
+  margin-top: 4px;
+  color: #93c5fd;
+  text-decoration: none;
 }
 
-.bottom-left,
-.bottom-right {
+/* TRIPLA CAIXA: DEX / HOWTO / VÍDEO */
+.triple-row {
+  margin-top: 10px;
+  display: flex;
+  gap: 16px;
+  height: 190px;  /* 180 + padding interno */
+}
+
+.triple-card {
+  flex: 1;
+  border-radius: 18px;
   background: var(--panel);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:16px;
-  font-size:12px;
+  border: 1px solid rgba(251,191,36,0.8); /* linha dourada */
+  box-shadow: 0 0 18px rgba(251,191,36,0.45); /* glow suave */
+  padding: 8px;
+  overflow: hidden;
 }
 
-.bottom-left { flex:1;margin-right:16px; }
-.bottom-right { width:330px; }
-.bottom-right h3 { margin:0 0 6px;color:var(--gold); }
+/* DEX MINI */
+.dex-card iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-/* ===========================================================
-   MOBILE MODE
-   =========================================================== */
-@media (max-width:900px) {
+/* HOW TO GET RFX2 (CENTRO) */
+.howto-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 14px 16px;
+  font-size: 12px;
+  color: #e5e7eb;
+}
+.howto-card h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: var(--gold);
+}
+.howto-card p {
+  margin: 0 0 6px;
+}
+.howto-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* VÍDEO (DIREITA) */
+.video-card video {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* ==== MOBILE (STACKED) ==== */
+@media (max-width: 900px) {
   body { overflow:auto; }
-  .app { flex-direction:column;height:auto; }
-  .sidebar { width:100%; }
-  .content-row { flex-direction:column;height:auto; }
-  .right-panel { width:100%;margin-top:20px; }
-  .video-card { margin-top:10px; }
-  .dex-mini { width:calc(100% - 40px);bottom:10px; }
-  .bottom-row { flex-direction:column;height:auto; }
-  .bottom-right { width:100%;margin-top:12px; }
+  .app { flex-direction: column; height: auto; }
+  .sidebar { width: 100%; }
+  .main { width: 100%; }
+  .header { flex-direction: column; align-items: flex-start; height: auto; gap: 8px; }
+  .header-metrics { width: 100%; justify-content: space-between; }
+  .content-row { flex-direction: column; height: auto; }
+  .right-panel { width: 100%; }
+  .triple-row { flex-direction: column; height: auto; }
 }
 </style>
-
 </head>
 <body>
 
 <div class="app">
 
-<!-- ===========================================================
-     SIDEBAR
-=========================================================== -->
-<aside class="sidebar">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <h1>ReflexCoin<br>2.0</h1>
+      <p>RFX2 • Solana</p>
 
-  <div>
-    <h1>ReflexCoin<br>2.0</h1>
-    <p>RFX2 • Solana</p>
-
-    <button onclick="addToPhantom()">Add RFX2 to Phantom</button>
-    <button onclick="window.open('https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z')">Buy on Raydium</button>
-    <button onclick="window.open('https://t.me/+dkJnuyXjGmcxZDk0')">Telegram Group</button>
-    <button onclick="window.open('https://x.com/0Rfx243906')">X (Twitter)</button>
-    <button onclick="window.open('https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata')">GitHub Repo</button>
-  </div>
-
-  <div class="sidebar-bottom">
-    ReflexCoin 2.0 is an experimental emotional-value token.<br>
-    Always verify the official mint address before trading.
-  </div>
-
-</aside>
-
-
-
-<!-- ===========================================================
-     MAIN AREA
-=========================================================== -->
-<main class="main">
-
-  <!-- HEADER SUPERIOR -->
-  <section class="header">
-
-    <div class="header-left">
-      <div class="header-logo">
-        <img src="logo-rfx2.png">
-      </div>
-
-      <div>
-        <div class="header-title-main">ReflexCoin 2.0 — RFX2</div>
-        <div class="header-title-sub">Experimental emotional-value token on Solana.</div>
-      </div>
+      <button onclick="addToPhantom()">Add RFX2 to Phantom</button>
+      <button onclick="window.open('https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z')">
+        Buy on Raydium
+      </button>
+      <button onclick="window.open('https://t.me/+dkJnuyXjGmcxZDk0')">
+        Telegram Group
+      </button>
+      <button onclick="window.open('https://x.com/0Rfx243906')">
+        X (Twitter)
+      </button>
+      <button onclick="window.open('https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata')">
+        GitHub Repo
+      </button>
     </div>
 
-    <div class="header-metrics">
-      <div>
-        <div class="metric-label">Live Price</div>
-        <div class="metric-value" id="livePrice">$0.000000</div>
-      </div>
-      <div>
-        <div class="metric-label">Market Cap</div>
-        <div class="metric-value" id="mcap">$0</div>
-      </div>
-      <div>
-        <div class="metric-label">Total Supply</div>
-        <div class="metric-value">2,000,000</div>
-      </div>
+    <div class="sidebar-bottom">
+      ReflexCoin 2.0 is an experimental emotional-value token.<br>
+      Always verify the official mint address before trading.
     </div>
-
-  </section>
-
+  </aside>
 
 
-  <!-- ZONA CENTRAL -->
-  <section class="content-row">
+  <!-- MAIN -->
+  <main class="main">
 
-    <!-- PAINEL CENTRAL -->
-    <section class="center-panel">
-
-      <h2>Emotional Value System</h2>
-      <p>ReflexCoin 2.0 transforms emotions into symbolic digital value. Record your emotion — future symbolic experiments may use this data.</p>
-
-      <div class="emotion-row">
-        <button>😄 Happy</button>
-        <button>😡 Angry</button>
-        <button>😢 Sad</button>
-        <button>🔥 Motivated</button>
-        <button>❤️ Loved</button>
+    <!-- HEADER SUPERIOR -->
+    <section class="header">
+      <div class="header-left">
+        <div class="header-logo">
+          <img src="logo-rfx2.png" alt="RFX2 Logo">
+        </div>
+        <div>
+          <div class="header-title-main">ReflexCoin 2.0 — RFX2</div>
+          <div class="header-title-sub">Experimental emotional-value token on Solana.</div>
+        </div>
       </div>
 
-      <div class="emotion-confirm">
-        <button class="record-btn">Record Emotion</button>
+      <div class="header-metrics">
+        <div>
+          <div class="metric-label">Live Price</div>
+          <div class="metric-value" id="livePrice">$0.000000</div>
+        </div>
+        <div>
+          <div class="metric-label">Market Cap</div>
+          <div class="metric-value" id="mcap">$0</div>
+        </div>
+        <div>
+          <div class="metric-label">Total Supply</div>
+          <div class="metric-value">2,000,000</div>
+        </div>
       </div>
+    </section>
 
-      <div class="dex-mini">
-        <iframe src="https://dexscreener.com/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z?embed=1"></iframe>
-      </div>
+
+    <!-- LINHA DO MEIO -->
+    <section class="content-row">
+
+      <!-- PAINEL CENTRAL -->
+      <section class="center-panel">
+        <h2>Emotional Value System</h2>
+        <p>
+          ReflexCoin 2.0 transforms emotions into symbolic digital value.
+          Record your emotion — future symbolic experiments may use this data.
+        </p>
+
+        <div class="emotion-row">
+          <button>😄 Happy</button>
+          <button>😡 Angry</button>
+          <button>😢 Sad</button>
+          <button>🔥 Motivated</button>
+          <button>❤️ Loved</button>
+        </div>
+
+        <div class="emotion-confirm">
+          <button class="record-btn">Record Emotion</button>
+        </div>
+
+        <div class="center-note">
+          Emotional logs are symbolic. No monetary value is guaranteed.
+        </div>
+      </section>
+
+      <!-- VERIFY AUTHENTICITY -->
+      <aside class="right-panel">
+        <div class="verify-card">
+          <h3>Verify Authenticity</h3>
+          <p>Always confirm the official mint before interacting.</p>
+          <a href="https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">
+            View on Solscan
+          </a>
+          <a href="https://explorer.solana.com/address/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">
+            Solana Explorer
+          </a>
+          <a href="https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">
+            Swap on Raydium
+          </a>
+          <a href="https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata" target="_blank">
+            GitHub Metadata
+          </a>
+        </div>
+      </aside>
 
     </section>
 
 
-    <!-- PAINEL DIREITO -->
-    <aside class="right-panel">
+    <!-- TRIPLA CAIXA (DEX / HOWTO / VÍDEO) -->
+    <section class="triple-row">
 
-      <div class="verify-card">
-        <h3>Verify Authenticity</h3>
-        <p>Always confirm the official mint before interacting.</p>
-
-        <a target="_blank" href="https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z">View on Solscan</a>
-        <a target="_blank" href="https://explorer.solana.com/address/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z">Solana Explorer</a>
-        <a target="_blank" href="https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z">Swap on Raydium</a>
-        <a target="_blank" href="https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata">GitHub Metadata</a>
+      <!-- DEX MINI -->
+      <div class="triple-card dex-card">
+        <iframe
+          src="https://dexscreener.com/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z?embed=1"
+          title="DexScreener RFX2">
+        </iframe>
       </div>
 
-      <div class="video-card">
+      <!-- HOW TO GET RFX2 -->
+      <div class="triple-card howto-card">
+        <h3>How to get RFX2</h3>
+        <p>Simple steps to join the experiment:</p>
+        <ul>
+          <li>Install and open Phantom Wallet.</li>
+          <li>Click “Connect Phantom” (or “Open in Phantom App” on mobile).</li>
+          <li>Add RFX2 to Phantom using the sidebar button.</li>
+          <li>Buy RFX2 on Raydium or via the DEX chart.</li>
+          <li>Log your daily emotion for future airdrop experiments.</li>
+        </ul>
+      </div>
+
+      <!-- VÍDEO -->
+      <div class="triple-card video-card">
         <video src="rfx2-video.mp4" autoplay muted loop controls></video>
       </div>
 
-    </aside>
+    </section>
 
-  </section>
-
-
-
-  <!-- FUNDO -->
-  <section class="bottom-row">
-
-    <div class="bottom-left">
-      ReflexCoin 2.0 is a symbolic emotional experiment.<br>
-      Price data provided by external APIs.<br>
-      Nothing here is financial advice.
-    </div>
-
-    <div class="bottom-right">
-      <h3>How to Get RFX2</h3>
-      <ol>
-        <li>Install Phantom Wallet.</li>
-        <li>Click “Connect Phantom”.</li>
-        <li>Add RFX2 using the sidebar button.</li>
-        <li>Buy RFX2 on Raydium.</li>
-        <li>Log your daily emotion.</li>
-      </ol>
-    </div>
-
-  </section>
-
-</main>
+  </main>
 
 </div>
 
 
-
-<!-- ===========================================================
-     SCRIPTS
-=========================================================== -->
+<!-- SCRIPTS -->
 <script>
-/* LIVE PRICE */
+/* Live price + market cap from DexScreener API */
 async function loadPrice() {
   try {
     const res = await fetch("https://api.dexscreener.com/tokens/v1/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z");
@@ -437,50 +466,56 @@ async function loadPrice() {
 
     document.getElementById("livePrice").innerText =
       "$" + Number(p.priceUsd).toFixed(6);
-
     document.getElementById("mcap").innerText =
       "$" + (p.marketCap ? Number(p.marketCap).toLocaleString() : "0");
-
-  } catch(e){}
+  } catch (e) {
+    console.log("Price error", e);
+  }
 }
 loadPrice();
 setInterval(loadPrice, 30000);
 
-/* ADD TO PHANTOM */
+/* Add token to Phantom */
 async function addToPhantom() {
-  if(!window.phantom || !window.phantom.solana) {
-    alert("Phantom not detected.");
+  if (!window.phantom || !window.phantom.solana || !window.phantom.solana.isPhantom) {
+    alert("Phantom Wallet not detected.");
     return;
   }
   try {
     await window.phantom.solana.request({
-      method:"wallet_watchAsset",
-      params:{ type:"spl-token", address:"43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" }
+      method: "wallet_watchAsset",
+      params: {
+        type: "spl-token",
+        address: "43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z"
+      }
     });
     alert("RFX2 added to Phantom!");
-  } catch(e){ alert("Failed."); }
+  } catch (e) {
+    alert("Error adding token.");
+  }
 }
 
-/* EMOTION LOG */
-let selectedEmotion=null;
-document.querySelectorAll(".emotion-row button").forEach(btn=>{
-  btn.onclick=()=>{
-    selectedEmotion=btn.innerText;
-    document.querySelectorAll(".emotion-row button").forEach(b=>b.style.opacity="0.6");
-    btn.style.opacity="1";
-  };
+/* Emotion logging (local, simbólico) */
+let selectedEmotion = null;
+document.querySelectorAll(".emotion-row button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    selectedEmotion = btn.innerText;
+    document.querySelectorAll(".emotion-row button")
+      .forEach(b => b.style.opacity = "0.6");
+    btn.style.opacity = "1";
+  });
 });
 
-document.querySelector(".record-btn").onclick=()=>{
-  if(!selectedEmotion){
-    alert("Select an emotion.");
+document.querySelector(".record-btn").addEventListener("click", () => {
+  if (!selectedEmotion) {
+    alert("Select an emotion first.");
     return;
   }
-  const logs = JSON.parse(localStorage.getItem("rfx2_logs")||"[]");
-  logs.push({emotion:selectedEmotion,time:new Date().toISOString()});
-  localStorage.setItem("rfx2_logs",JSON.stringify(logs));
-  alert("Emotion recorded: "+selectedEmotion);
-};
+  const logs = JSON.parse(localStorage.getItem("rfx2_emotions") || "[]");
+  logs.push({ emotion: selectedEmotion, time: new Date().toISOString() });
+  localStorage.setItem("rfx2_emotions", JSON.stringify(logs));
+  alert("Emotion recorded: " + selectedEmotion);
+});
 </script>
 
 </body>
