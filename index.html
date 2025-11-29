@@ -23,7 +23,7 @@ body {
   gap: 20px;
 }
 
-/* SIDEBAR ESQUERDA (igual ao antigo) */
+/* SIDEBAR ESQUERDA (design original) */
 .sidebar {
   width: 280px;
   background: radial-gradient(circle at top left, #111827, #020617);
@@ -72,7 +72,7 @@ body {
   color: #9ca3af;
 }
 
-/* ÁREA PRINCIPAL (CENTRO + DIREITA) */
+/* ÁREA PRINCIPAL */
 .main {
   flex: 1;
   display: flex;
@@ -80,7 +80,7 @@ body {
   gap: 16px;
 }
 
-/* HEADER SUPERIOR */
+/* HEADER (igual ao original) */
 .header {
   height: 110px;
   border-radius: 18px;
@@ -113,10 +113,6 @@ body {
   object-fit: cover;
 }
 
-.header-title {
-  display: flex;
-  flex-direction: column;
-}
 .header-title-main {
   font-size: 24px;
   font-weight: 700;
@@ -145,14 +141,13 @@ body {
   color: #facc6b;
 }
 
-/* CORPO: PAINEL CENTRAL + LATERAL DIREITO */
+/* PAINÉIS */
 .content-row {
   flex: 1;
   display: flex;
   gap: 16px;
 }
 
-/* PAINEL CENTRAL (ONDE ESTÃO AS EMOÇÕES + DEX MINI) */
 .center-panel {
   flex: 1;
   border-radius: 20px;
@@ -160,11 +155,11 @@ body {
   border: 1px solid #1f2937;
   box-shadow: 0 0 35px rgba(0,0,0,0.7);
   padding: 24px 26px;
-  position: relative; /* importante p/ o DEX ficar dentro */
-  box-sizing: border-box;
-  padding-bottom: 220px; /* espaço reservado para o DEX mini */
+  position: relative;
+  padding-bottom: 220px; /* espaço para o DEX */
 }
 
+/* TÍTULO DO PAINEL CENTRAL */
 .center-panel h2 {
   margin: 0;
   font-size: 24px;
@@ -177,7 +172,7 @@ body {
   color: #d1d5db;
 }
 
-/* BOTÕES DE EMOÇÃO */
+/* EMOÇÕES */
 .emotion-row {
   display: flex;
   flex-wrap: wrap;
@@ -191,20 +186,41 @@ body {
   color: #e5e7eb;
   font-size: 14px;
   cursor: pointer;
-  transition: 0.15s;
 }
 .emotion-row button:hover {
   background: #1f2937;
 }
 
-/* TEXTO DE AVISO EM BAIXO DO TEXTO PRINCIPAL */
+/* BOTÃO RECORD EMOTION */
+.emotion-confirm {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.record-btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, #d8b4fe, #fcd34d);
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
+  transition: 0.2s;
+}
+.record-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(250,204,21,0.65);
+}
+
+/* TEXTO ABAIXO */
 .center-note {
   margin-top: 12px;
   font-size: 11px;
   color: #9ca3af;
 }
 
-/* DEX MINI DENTRO DO PAINEL CENTRAL, CANTO INFERIOR ESQUERDO */
+/* DEX MINI DENTRO DO PAINEL */
 .dex-mini {
   position: absolute;
   left: 20px;
@@ -222,7 +238,7 @@ body {
   border: none;
 }
 
-/* PAINEL DIREITO (VERIFY + VÍDEO) */
+/* PAINEL DIREITO */
 .right-panel {
   width: 330px;
   display: flex;
@@ -230,26 +246,19 @@ body {
   gap: 16px;
 }
 
-/* BLOCO VERIFY AUTHENTICITY */
 .verify-card {
   flex: 1;
   border-radius: 20px;
   background: radial-gradient(circle at top, #111827, #020617);
   border: 1px solid #1f2937;
-  box-shadow: 0 0 35px rgba(0,0,0,0.7);
   padding: 22px 20px;
-  box-sizing: border-box;
+  box-shadow: 0 0 35px rgba(0,0,0,0.7);
 }
 
 .verify-card h3 {
   margin: 0 0 10px;
   font-size: 18px;
   color: #fef3c7;
-}
-.verify-card p {
-  margin: 4px 0;
-  font-size: 13px;
-  color: #9ca3af;
 }
 .verify-card a {
   display: block;
@@ -258,11 +267,8 @@ body {
   color: #93c5fd;
   text-decoration: none;
 }
-.verify-card a:hover {
-  text-decoration: underline;
-}
 
-/* QUADRO DO VÍDEO EM BAIXO, MESMO TAMANHO QUE O DEX */
+/* VÍDEO ALINHADO COM DEX */
 .video-card {
   width: 100%;
   height: 180px;
@@ -270,6 +276,7 @@ body {
   border: 1px solid #fbbf24;
   box-shadow: 0 0 25px rgba(251,191,36,0.6);
   overflow: hidden;
+  margin-top: -10px; /* alinhamento com o Dex */
 }
 .video-card video {
   width: 100%;
@@ -277,53 +284,40 @@ body {
   object-fit: cover;
 }
 
-/* RODAPÉ INFERIOR: COMO NO ANTIGO (EMOÇÕES + PASSOS) */
+/* LINHA INFERIOR */
 .bottom-row {
   margin-top: 6px;
   display: flex;
   gap: 16px;
   height: 110px;
 }
-
-/* LEFT: TEXTO EMOCIONAL / DISCLAIMER */
+.bottom-left,
+.bottom-right {
+  background: radial-gradient(circle at top, #111827, #020617);
+  border-radius: 18px;
+  border: 1px solid #1f2937;
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+  padding: 16px 20px;
+  color: #d1d5db;
+  font-size: 12px;
+}
 .bottom-left {
   flex: 1;
-  border-radius: 18px;
-  background: radial-gradient(circle at top, #111827, #020617);
-  border: 1px solid #1f2937;
-  padding: 16px 20px;
-  font-size: 12px;
-  color: #9ca3af;
-  box-shadow: 0 0 25px rgba(0,0,0,0.7);
 }
-
-/* RIGHT: HOW TO GET RFX2 */
 .bottom-right {
   width: 330px;
-  border-radius: 18px;
-  background: radial-gradient(circle at top, #111827, #020617);
-  border: 1px solid #1f2937;
-  padding: 16px 20px;
-  font-size: 12px;
-  color: #d1d5db;
-  box-shadow: 0 0 25px rgba(0,0,0,0.7);
 }
 .bottom-right h3 {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   font-size: 15px;
   color: #fef3c7;
 }
 .bottom-right ol {
-  margin: 0;
   padding-left: 18px;
+  margin: 0;
 }
-.bottom-right li {
-  margin-bottom: 3px;
-}
-
 </style>
 </head>
-
 <body>
 
 <div class="app">
@@ -344,21 +338,21 @@ body {
     </div>
 
     <div class="sidebar-bottom">
-      ReflexCoin 2.0 is an experimental emotional-value token.
+      ReflexCoin 2.0 is an experimental emotional-value token.<br>
       Always verify the official mint address before trading.
     </div>
   </aside>
 
-  <!-- ÁREA PRINCIPAL -->
+  <!-- MAIN -->
   <main class="main">
 
-    <!-- HEADER SUPERIOR -->
+    <!-- HEADER -->
     <section class="header">
       <div class="header-left">
         <div class="header-logo">
           <img src="logo-rfx2.png" alt="RFX2 Logo">
         </div>
-        <div class="header-title">
+        <div>
           <div class="header-title-main">ReflexCoin 2.0 — RFX2</div>
           <div class="header-title-sub">Experimental emotional-value token on Solana.</div>
         </div>
@@ -380,16 +374,14 @@ body {
       </div>
     </section>
 
-    <!-- CORPO PRINCIPAL: PAINEL CENTRAL + DIREITO -->
+    <!-- CENTER + RIGHT -->
     <section class="content-row">
 
       <!-- PAINEL CENTRAL -->
       <section class="center-panel">
         <h2>Emotional Value System</h2>
-        <p>
-          ReflexCoin 2.0 transforms emotions into symbolic digital value.
-          Record your emotion — it may influence future symbolic airdrop experiments.
-        </p>
+        <p>ReflexCoin 2.0 transforms emotions into symbolic digital value.  
+           Record your emotion — it may influence future symbolic airdrop experiments.</p>
 
         <div class="emotion-row">
           <button>😄 Happy</button>
@@ -399,50 +391,53 @@ body {
           <button>❤️ Loved</button>
         </div>
 
+        <div class="emotion-confirm">
+          <button class="record-btn">Record Emotion</button>
+        </div>
+
         <div class="center-note">
           Emotional logs are experimental and have no guaranteed value.
         </div>
 
-        <!-- DEXSCREENER MINI DENTRO DO PAINEL, CANTO INFERIOR ESQUERDO -->
+        <!-- DEX MINI -->
         <div class="dex-mini">
-          <iframe src="https://dexscreener.com/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z?embed=1"
-                  title="Dexscreener RFX2"></iframe>
+          <iframe src="https://dexscreener.com/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z?embed=1"></iframe>
         </div>
       </section>
 
-      <!-- PAINEL DIREITO (VERIFY + VÍDEO) -->
+      <!-- PAINEL DIREITO -->
       <aside class="right-panel">
+
         <div class="verify-card">
           <h3>Verify Authenticity</h3>
-          <p>Always confirm the official mint before trading.</p>
-          <a href="https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">View on Solscan</a>
-          <a href="https://explorer.solana.com/address/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">Solana Explorer</a>
-          <a href="https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">Swap on Raydium</a>
-          <a href="https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata" target="_blank">GitHub Metadata</a>
+          <a href="https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z">View on Solscan</a>
+          <a href="https://explorer.solana.com/address/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z">Solana Explorer</a>
+          <a href="https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z">Swap on Raydium</a>
+          <a href="https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata">GitHub Metadata</a>
         </div>
 
-        <!-- VÍDEO NO CANTO INFERIOR DIREITO (MESMO TAMANHO QUE DEX) -->
+        <!-- VIDEO -->
         <div class="video-card">
-          <video src="rfx2-video.mp4" autoplay muted loop controls></video>
+          <video src="rfx2-video.mp4" autoplay muted loop></video>
         </div>
+
       </aside>
 
     </section>
-
-    <!-- LINHA INFERIOR (DISCLAMER + HOW TO GET) -->
+    <!-- LINHA INFERIOR -->
     <section class="bottom-row">
       <div class="bottom-left">
         ReflexCoin 2.0 is a symbolic emotional experiment.  
-        This interface shows live price data from third-party sources and
-        a basic emotional logging interface. Nothing here is financial advice.
+        Live data is provided by external APIs.  
+        This interface does not imply any financial advice.
       </div>
       <div class="bottom-right">
         <h3>How to get RFX2</h3>
         <ol>
-          <li>Install and open Phantom Wallet.</li>
-          <li>Click “Add RFX2 to Phantom” on the left.</li>
-          <li>Swap SOL for RFX2 on Raydium.</li>
-          <li>Record your emotion for future experiments.</li>
+          <li>Install Phantom Wallet.</li>
+          <li>Use “Add RFX2 to Phantom”.</li>
+          <li>Swap SOL → RFX2 on Raydium.</li>
+          <li>Record your daily emotion.</li>
         </ol>
       </div>
     </section>
@@ -451,24 +446,27 @@ body {
 </div>
 
 <script>
-/* LIVE PRICE VIA DEXSCREENER API */
+/* PREÇO AO VIVO */
 async function loadPrice() {
   try {
     const res = await fetch("https://api.dexscreener.com/tokens/v1/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z");
     const data = await res.json();
     const p = data[0];
+
     document.getElementById("livePrice").innerText =
       "$" + Number(p.priceUsd).toFixed(6);
+
     document.getElementById("mcap").innerText =
       "$" + (p.marketCap ? Number(p.marketCap).toLocaleString() : "0");
+
   } catch (e) {
-    console.log("price error", e);
+    console.log("Price error", e);
   }
 }
 loadPrice();
 setInterval(loadPrice, 30000);
 
-/* ADD RFX2 TO PHANTOM */
+/* ADD TOKEN À PHANTOM */
 async function addToPhantom() {
   if (!window.phantom || !window.phantom.solana || !window.phantom.solana.isPhantom) {
     alert("Phantom Wallet not detected.");
@@ -482,8 +480,8 @@ async function addToPhantom() {
         address: "43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z"
       }
     });
-    alert("RFX2 added to Phantom!");
-  } catch (e) {
+    alert("Token added to Phantom!");
+  } catch {
     alert("Error adding token.");
   }
 }
