@@ -1,11 +1,11 @@
-# 🌐 ReflexCoin 2.0 (RFX2)
+# ReflexCoin 2.0 (RFX2)
 
 ReflexCoin 2.0 (RFX2) is a digital token on the Solana blockchain that explores the connection between human emotion, social behaviour and digital value.  
-It is positioned as the **first emotional-value token on Solana** — a symbolic mirror of daily emotional energy.
+It is positioned as the first emotional-value token on Solana — a symbolic mirror of daily emotional energy.
 
 ---
 
-## 📊 Token Details
+## Token Details
 
 - **Name:** ReflexCoin 2.0  
 - **Symbol:** RFX2  
@@ -19,7 +19,7 @@ It is positioned as the **first emotional-value token on Solana** — a symbolic
 
 ---
 
-## 🧠 Concept
+## Concept
 
 ReflexCoin 2.0 aims to turn human emotions into symbolic digital value.
 
@@ -31,15 +31,15 @@ The project acts as an **“emotional mirror”**, reflecting:
 
 The long-term vision is to experiment with:
 
-- **daily emotion logging**
-- **emotion-based airdrop experiments**
-- **sentiment-driven community features**
+- daily emotion logging  
+- emotion-based airdrop experiments  
+- sentiment-driven community features  
 
 It is a cultural and social experiment built on Solana, with a strong focus on community and emotional expression.
 
 ---
 
-## 🌐 Official Links
+## Official Links
 
 - **Website:**  
   https://reflexcoin2-0-project.github.io/reflexcoin-metadata/
@@ -60,14 +60,14 @@ It is a cultural and social experiment built on Solana, with a strong focus on c
   https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata
 
 - **Telegram (Community):**  
-  https://t.me/ReflexCoin2
+  https://t.me/+dkJnuyXjGmcxZDk0
 
 - **X / Twitter:**  
-  https://x.com/ReflexcoinRfx
+  https://x.com/0Rfx243906
 
 ---
 
-## 💠 Wallet Compatibility
+## Wallet Compatibility
 
 - ✅ Phantom Wallet  
 - ✅ Solana SPL standard  
