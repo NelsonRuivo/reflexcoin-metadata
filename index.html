@@ -16,51 +16,52 @@
 }
 
 /* RESET */
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   margin: 0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow: hidden; /* sem scroll no desktop */
+  overflow: hidden; /* NO SCROLL desktop */
 }
 
-/* LAYOUT GERAL */
 .app {
   display: flex;
   height: 100vh;
-  padding: 16px 20px;
-  gap: 20px;
+  padding: 12px 16px;
+  gap: 14px;
 }
 
-/* SIDEBAR ESQUERDA */
+/* SIDEBAR */
 .sidebar {
-  width: 280px;
-  background: radial-gradient(circle at top left, #111827, #020617);
+  width: 260px;
+  background: var(--panel);
   border-radius: 18px;
   border: 1px solid var(--border);
-  padding: 20px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .sidebar h1 {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 800;
   color: var(--gold);
-  margin: 0 0 6px;
-  line-height: 1.05;
-  text-shadow: 0 0 16px rgba(250,204,21,0.6);
+  margin-bottom: 4px;
+  text-shadow: 0 0 14px rgba(250,204,21,0.6);
 }
+
 .sidebar p {
-  margin: 4px 0 14px;
   color: var(--muted);
   font-size: 13px;
+  margin-bottom: 12px;
 }
+
 .sidebar button {
   width: 100%;
-  padding: 11px 0;
+  padding: 10px;
   margin-top: 10px;
   border-radius: 999px;
   border: 1px solid #4b5563;
@@ -68,27 +69,22 @@ body {
   color: #f9fafb;
   cursor: pointer;
   font-size: 13px;
-  font-weight: 500;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
   transition: 0.15s;
 }
+
 .sidebar button:hover {
   background: linear-gradient(135deg,#7c3aed,#111827);
   border-color: #6366f1;
   box-shadow: 0 0 18px rgba(129,140,248,0.6);
-  transform: translateY(-1px);
 }
-.sidebar button:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
+
 .sidebar-bottom {
   font-size: 11px;
   color: var(--muted);
 }
 
-/* MAIN AREA */
+/* MAIN */
 .main {
   flex: 1;
   display: flex;
@@ -96,255 +92,192 @@ body {
   gap: 10px;
 }
 
-/* HEADER SUPERIOR */
+/* HEADER */
 .header {
-  height: 90px;
+  height: 85px;
   border-radius: 16px;
   background: var(--panel);
   border: 1px solid var(--border);
-  padding: 10px 24px;
+  padding: 8px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .header-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
+
 .header-logo {
-  width: 68px;
-  height: 68px;
-  border-radius: 22px;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
   overflow: hidden;
   background: radial-gradient(circle,#38bdf8,#1d4ed8);
-  box-shadow: 0 0 26px rgba(56,189,248,0.6);
 }
-.header-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 .header-title-main {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fef3c7;
-}
-.header-title-sub {
-  font-size: 12px;
-  color: var(--muted);
-}
-.header-metrics {
-  display: flex;
-  gap: 24px;
-}
-.metric-label {
-  font-size: 12px;
-  color: var(--muted);
-}
-.metric-value {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--gold);
 }
 
-/* BLOCO DO MEIO: PAINEL CENTRAL + VERIFY */
+.header-title-sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.header-metrics {
+  display: flex;
+  gap: 20px;
+}
+
+.metric-label { font-size: 12px; color: var(--muted); }
+.metric-value { font-size: 17px; font-weight: 700; color: var(--gold); }
+
+/* CONTENT ROW */
 .content-row {
   display: flex;
   gap: 14px;
-  flex: 1;
+  height: 310px; /* FIXED like the print */
   min-height: 0;
 }
-
-/* PAINEL CENTRAL (EMOÇÕES) */
+/* EMOTION PANEL — EXACT SIZE LIKE PRINT */
 .center-panel {
   flex: 1;
   border-radius: 18px;
   background: var(--panel);
   border: 1px solid var(--border);
-  padding: 18px 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  padding: 16px 20px;
 }
+
 .center-panel h2 {
-  margin: 0;
-  font-size: 22px;
+  font-size: 20px;
+  margin-bottom: 6px;
   color: var(--gold);
 }
+
 .center-panel p {
-  margin: 8px 0 16px;
-  font-size: 14px;
+  font-size: 13px;
   color: #d1d5db;
+  margin-bottom: 12px;
 }
+
+/* Emotion Buttons EXACT LIKE PRINT */
 .emotion-row {
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
 }
+
 .emotion-row button {
-  padding: 7px 16px;
+  padding: 6px 14px;
   border-radius: 999px;
   border: 1px solid #374151;
   background: #111827;
-  color: var(--text);
   font-size: 13px;
-  cursor: pointer;
-  transition: 0.15s;
+  color: var(--text);
 }
+
 .emotion-row button:hover {
   background: #1f2937;
 }
-.emotion-confirm {
-  margin-top: 14px;
-  text-align: center;
-}
+
+/* Record Emotion EXACT print glow */
 .record-btn {
-  padding: 11px 26px;
+  margin-top: 14px;
+  padding: 10px 30px;
   border-radius: 999px;
   border: none;
   background: linear-gradient(135deg,#d8b4fe,#fcd34d);
   color: #0b1120;
-  font-size: 15px;
   font-weight: 600;
-  cursor: pointer;
   box-shadow: 0 0 16px rgba(236,72,153,0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
-.record-btn:hover {
-  box-shadow: 0 0 22px rgba(250,204,21,0.85);
-}
+
+/* NOTE */
 .center-note {
-  margin-top: 8px;
   font-size: 11px;
+  margin-top: 6px;
   color: var(--muted);
 }
 
-/* VERIFY AUTHENTICITY (DIREITA EM CIMA) */
+/* RIGHT PANEL */
 .right-panel {
-  width: 320px;
+  width: 310px;
   display: flex;
-  flex-direction: column;
 }
+
 .verify-card {
   flex: 1;
   border-radius: 18px;
   background: var(--panel);
   border: 1px solid var(--border);
-  padding: 18px 18px 16px;
+  padding: 16px 16px 12px;
   font-size: 13px;
 }
+
 .verify-card h3 {
-  margin: 0 0 8px;
   font-size: 18px;
   color: var(--gold);
-}
-.verify-card p {
-  margin: 0 0 6px;
-  color: #d1d5db;
-}
-.verify-card a {
-  display: block;
-  margin-top: 4px;
-  color: #93c5fd;
-  font-size: 12px;
-  text-decoration: none;
-}
-.verify-card a:hover {
-  text-decoration: underline;
+  margin-bottom: 6px;
 }
 
-/* TRIPLA CAIXA: DEX | HOWTO | VÍDEO */
-.triple-row {
-  margin-top: 6px;
-  display: flex;
-  gap: 14px;
-  height: 190px; /* 180 de conteúdo + padding */
+.verify-card a {
+  color: #93c5fd;
+  font-size: 12px;
 }
+
+/* TRIPLE ROW — FIXED HEIGHT LIKE PRINT */
+.triple-row {
+  margin-top: -4px;
+  height: 225px;
+  display: flex;
+  gap: 12px;
+}
+
 .triple-card {
   flex: 1;
   border-radius: 18px;
   background: var(--panel);
-  border: 1px solid rgba(251,191,36,0.9);       /* linha dourada */
-  box-shadow: 0 0 16px rgba(251,191,36,0.45);   /* glow suave */
-  padding: 6px;
+  border: 1px solid rgba(251,191,36,0.7);
+  box-shadow: 0 0 14px rgba(251,191,36,0.35);
   overflow: hidden;
 }
 
-/* DEX MINI */
+/* DEX mini */
 .dex-card iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
 
-/* HOW TO GET — CENTRO */
+/* HOW TO — centered */
 .howto-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 10px 12px;
-  font-size: 11px;
-  color: #e5e7eb;
-}
-.howto-card h3 {
-  margin: 0 0 4px;
-  font-size: 14px;
-  color: var(--gold);
-}
-.howto-card p {
-  margin: 0 0 6px;
-}
-.howto-card ul {
-  margin: 0;
-  padding-left: 16px;
-}
-.howto-card li {
-  margin-bottom: 2px;
+  padding: 12px;
+  font-size: 12px;
 }
 
-/* VÍDEO — DIREITA */
+.howto-card h3 {
+  font-size: 15px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+/* VIDEO */
 .video-card video {
   width: 100%;
   height: 100%;
-  border-radius: 12px;
   object-fit: cover;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-  body { overflow: auto; }
-  .app { flex-direction: column; height: auto; padding: 12px; }
-  .sidebar { width: 100%; margin-bottom: 8px; }
-  .main { width: 100%; }
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    gap: 6px;
-  }
-  .header-metrics {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .content-row {
-    flex-direction: column;
-    height: auto;
-  }
-  .right-panel {
-    width: 100%;
-  }
-  .triple-row {
-    flex-direction: column;
-    height: auto;
-  }
+  border-radius: 10px;
 }
 </style>
 </head>
 <body>
 
 <div class="app">
+
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div>
@@ -352,35 +285,25 @@ body {
       <p>RFX2 • Solana</p>
 
       <button onclick="addToPhantom()">Add RFX2 to Phantom</button>
-      <button onclick="window.open('https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z')">
-        Buy on Raydium
-      </button>
-      <button onclick="window.open('https://t.me/+dkJnuyXjGmcxZDk0')">
-        Telegram Group
-      </button>
-      <button onclick="window.open('https://x.com/0Rfx243906')">
-        X (Twitter)
-      </button>
-      <button onclick="window.open('https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata')">
-        GitHub Repo
-      </button>
+      <button onclick="window.open('https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z')">Buy on Raydium</button>
+      <button onclick="window.open('https://t.me/+dkJnuyXjGmcxZDk0')">Telegram Group</button>
+      <button onclick="window.open('https://x.com/0Rfx243906')">X (Twitter)</button>
+      <button onclick="window.open('https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata')">GitHub Repo</button>
     </div>
 
     <div class="sidebar-bottom">
       ReflexCoin 2.0 is an experimental emotional-value token.<br>
-      Always verify the official mint address before trading.
+      Always verify the official mint address.
     </div>
   </aside>
 
   <!-- MAIN -->
   <main class="main">
 
-    <!-- HEADER SUPERIOR -->
+    <!-- HEADER -->
     <section class="header">
       <div class="header-left">
-        <div class="header-logo">
-          <img src="logo-rfx2.png" alt="RFX2 Logo">
-        </div>
+        <div class="header-logo"><img src="logo-rfx2.png"></div>
         <div>
           <div class="header-title-main">ReflexCoin 2.0 — RFX2</div>
           <div class="header-title-sub">Experimental emotional-value token on Solana.</div>
@@ -388,31 +311,18 @@ body {
       </div>
 
       <div class="header-metrics">
-        <div>
-          <div class="metric-label">Live Price</div>
-          <div class="metric-value" id="livePrice">$0.000000</div>
-        </div>
-        <div>
-          <div class="metric-label">Market Cap</div>
-          <div class="metric-value" id="mcap">$0</div>
-        </div>
-        <div>
-          <div class="metric-label">Total Supply</div>
-          <div class="metric-value">2,000,000</div>
-        </div>
+        <div><div class="metric-label">Live Price</div><div class="metric-value" id="livePrice">$0.000000</div></div>
+        <div><div class="metric-label">Market Cap</div><div class="metric-value" id="mcap">$0</div></div>
+        <div><div class="metric-label">Total Supply</div><div class="metric-value">2,000,000</div></div>
       </div>
     </section>
 
-    <!-- LINHA DO MEIO -->
+    <!-- CONTENT ROW -->
     <section class="content-row">
 
-      <!-- PAINEL CENTRAL (EMOÇÕES) -->
       <section class="center-panel">
         <h2>Emotional Value System</h2>
-        <p>
-          ReflexCoin 2.0 transforms emotions into symbolic digital value.
-          Record your emotion — future symbolic experiments may use this data.
-        </p>
+        <p>Record your emotion — symbolic experiments may use this data.</p>
 
         <div class="emotion-row">
           <button>😄 Happy</button>
@@ -422,132 +332,59 @@ body {
           <button>❤️ Loved</button>
         </div>
 
-        <div class="emotion-confirm">
-          <button class="record-btn">Record Emotion</button>
-        </div>
-
-        <div class="center-note">
-          Emotional logs are symbolic. No monetary value is guaranteed.
-        </div>
+        <button class="record-btn">Record Emotion</button>
+        <div class="center-note">Emotional logs are symbolic only.</div>
       </section>
 
-      <!-- VERIFY AUTHENTICITY -->
       <aside class="right-panel">
         <div class="verify-card">
           <h3>Verify Authenticity</h3>
-          <p>Always confirm the official mint before interacting.</p>
-          <a href="https://solscan.io/token/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">
-            View on Solscan
-          </a>
-          <a href="https://explorer.solana.com/address/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">
-            Solana Explorer
-          </a>
-          <a href="https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" target="_blank">
-            Swap on Raydium
-          </a>
-          <a href="https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata" target="_blank">
-            GitHub Metadata
-          </a>
+          <a href="#">View on Solscan</a>
+          <a href="#">Solana Explorer</a>
+          <a href="#">Swap on Raydium</a>
+          <a href="#">GitHub Metadata</a>
         </div>
       </aside>
-
     </section>
 
-    <!-- TRIPLA LINHA: DEX | HOWTO | VIDEO -->
+    <!-- TRIPLE -->
     <section class="triple-row">
 
-      <!-- DEX MINI -->
       <div class="triple-card dex-card">
-        <iframe
-          src="https://dexscreener.com/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z?embed=1"
-          title="DexScreener RFX2">
-        </iframe>
+        <iframe src="https://dexscreener.com/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z?embed=1"></iframe>
       </div>
 
-      <!-- HOW TO GET -->
       <div class="triple-card howto-card">
         <h3>How to get RFX2</h3>
-        <p>Simple steps to join the experiment:</p>
         <ul>
-          <li>Install and open Phantom Wallet.</li>
-          <li>Click “Connect Phantom” (or “Open in Phantom App” on mobile).</li>
-          <li>Add RFX2 to Phantom using the sidebar button.</li>
-          <li>Buy RFX2 on Raydium or via the DEX chart.</li>
-          <li>Log your daily emotion for future airdrop experiments.</li>
+          <li>Install Phantom Wallet</li>
+          <li>Connect Phantom</li>
+          <li>Add RFX2</li>
+          <li>Buy on Raydium</li>
+          <li>Log daily emotion</li>
         </ul>
       </div>
 
-      <!-- VÍDEO -->
       <div class="triple-card video-card">
-        <video src="rfx2-video.mp4" autoplay muted loop controls></video>
+        <video src="rfx2-video.mp4" autoplay muted loop></video>
       </div>
 
     </section>
 
   </main>
 </div>
-<!-- SCRIPTS -->
+
 <script>
-/* Live price + market cap via Dexscreener API */
-async function loadPrice() {
-  try {
-    const res = await fetch("https://api.dexscreener.com/tokens/v1/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z");
-    const data = await res.json();
-    const p = data[0];
-
-    document.getElementById("livePrice").innerText =
-      "$" + Number(p.priceUsd).toFixed(6);
-
-    document.getElementById("mcap").innerText =
-      "$" + (p.marketCap ? Number(p.marketCap).toLocaleString() : "0");
-  } catch (e) {
-    console.log("Price error", e);
-  }
+/* Price loader */
+async function loadPrice(){
+  try{
+    const r = await fetch("https://api.dexscreener.com/tokens/v1/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z");
+    const d = await r.json();
+    document.getElementById("livePrice").innerText = "$" + Number(d[0].priceUsd).toFixed(6);
+    document.getElementById("mcap").innerText     = "$" + Number(d[0].marketCap).toLocaleString();
+  }catch(e){}
 }
-loadPrice();
-setInterval(loadPrice, 30000);
-
-/* Add RFX2 to Phantom */
-async function addToPhantom() {
-  if (!window.phantom || !window.phantom.solana || !window.phantom.solana.isPhantom) {
-    alert("Phantom Wallet not detected.");
-    return;
-  }
-  try {
-    await window.phantom.solana.request({
-      method: "wallet_watchAsset",
-      params: {
-        type: "spl-token",
-        address: "43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z"
-      }
-    });
-    alert("RFX2 added to Phantom!");
-  } catch (e) {
-    alert("Error adding token.");
-  }
-}
-
-/* Emotion logging (local, simbólico) */
-let selectedEmotion = null;
-document.querySelectorAll(".emotion-row button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    selectedEmotion = btn.innerText;
-    document.querySelectorAll(".emotion-row button")
-      .forEach(b => b.style.opacity = "0.6");
-    btn.style.opacity = "1";
-  });
-});
-
-document.querySelector(".record-btn").addEventListener("click", () => {
-  if (!selectedEmotion) {
-    alert("Select an emotion first.");
-    return;
-  }
-  const logs = JSON.parse(localStorage.getItem("rfx2_emotions") || "[]");
-  logs.push({ emotion: selectedEmotion, time: new Date().toISOString() });
-  localStorage.setItem("rfx2_emotions", JSON.stringify(logs));
-  alert("Emotion recorded: " + selectedEmotion);
-});
+loadPrice(); setInterval(loadPrice,30000);
 </script>
 
 </body>
