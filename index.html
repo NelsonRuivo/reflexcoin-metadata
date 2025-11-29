@@ -6,211 +6,187 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <style>
-/* ===== BASE VISUAL THEME (ORIGINAL DESIGN PERFECTLY REPLICATED) ===== */
+/* BASE THEME EXACTLY LIKE ORIGINAL */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at top, #0a0f24, #050814 90%);
+  background: linear-gradient(145deg, #0a0f24, #060b18 80%);
   color: #e8ebf7;
-  overflow: hidden;
+  overflow: hidden; /* No scroll */
 }
 
-/* GLOW TITLE */
-.title-glow {
-  font-size: 34px;
-  font-weight: 800;
-  color: #f7d791;
-  text-shadow: 0 0 12px rgba(255, 204, 0, 0.45), 0 0 40px rgba(255, 215, 120, 0.25);
-}
-
-/* TOP HEADER WRAPPER */
-.top-header {
-  position: absolute;
-  top: 20px;
-  left: 310px;
-  right: 310px;
-  height: 90px;
-  border-radius: 16px;
-  background: linear-gradient(180deg, #0b122f, #070b1b);
-  border: 1px solid #1d2240;
-  padding: 14px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 0 40px rgba(0,0,0,0.55);
-}
-
-/* LOGO */
-.token-logo {
-  width: 70px;
-  height: 70px;
-  border-radius: 16px;
-  background: radial-gradient(circle, #38bdf8, #1d4ed8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(56,189,248,0.35);
-}
-.token-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* PRICE BLOCK */
-.price-block {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-.price-block span {
-  font-size: 15px;
-  color: #9ba3c7;
-}
-.price-val {
-  font-size: 20px;
-  font-weight: 700;
-  color: #f7d791;
-}
-
-/* LEFT SIDEBAR */
+/* ----------------- SIDEBAR (LEFT) ----------------- */
 .sidebar {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 260px;
-  background: linear-gradient(180deg, #0b1027, #060a16);
-  border: 1px solid #1c2035;
-  border-radius: 14px;
-  padding: 20px;
+  width: 280px;
   height: calc(100vh - 40px);
-  box-shadow: 0 0 40px rgba(0,0,0,0.45);
+  background: linear-gradient(#0c1028, #070b1d);
+  border-radius: 16px;
+  border: 1px solid #1b2140;
+  padding: 25px;
+  box-shadow: 0 0 35px rgba(0,0,0,0.5);
 }
+
+.sidebar h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #f7d791;
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 12px rgba(255, 211, 120, 0.4);
+}
+
+.sidebar p {
+  color: #93a1c7;
+  margin-top: -5px;
+}
+
 .sidebar button {
   width: 100%;
   padding: 14px 0;
-  margin: 8px 0;
-  background: linear-gradient(135deg, #18203b, #0f152c);
-  border: 1px solid #293150;
-  color: #dce1f8;
-  border-radius: 10px;
-  font-size: 14px;
+  margin-top: 12px;
+  font-size: 15px;
+  border-radius: 12px;
+  background: linear-gradient(135deg,#1a2347,#111830);
+  border: 1px solid #29345c;
+  color: #e8ebf7;
   cursor: pointer;
-  transition: 0.2s;
+  transition: .25s;
 }
 .sidebar button:hover {
-  background: linear-gradient(135deg, #223058, #151d3e);
-  border-color: #3a4972;
+  background: linear-gradient(135deg,#24356a,#131d3b);
 }
 
-/* CENTER EMOTION PANEL */
+/* ----------------- TOP HEADER ----------------- */
+.header-box {
+  position: absolute;
+  top: 20px;
+  left: 330px;
+  right: 330px;
+  height: 110px;
+  border-radius: 18px;
+  background: linear-gradient(#0c122e, #070b1b);
+  padding: 20px 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #1c223f;
+  box-shadow: 0 0 40px rgba(0,0,0,.55);
+}
+
+.header-logo {
+  width: 85px;
+  height: 85px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #152c59;
+}
+.header-logo img {
+  width: 100%; height:100%; object-fit: cover;
+}
+
+.price-box {
+  text-align: center;
+}
+.price-title {
+  color: #9aa3c7;
+  font-size: 15px;
+}
+.price-value {
+  color: #f7d791;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* ----------------- CENTER PANEL ----------------- */
 .center-panel {
   position: absolute;
-  top: 120px;
-  left: 310px;
-  right: 310px;
-  height: calc(100vh - 360px);
-  background: linear-gradient(180deg, #0b122f, #070b1b);
-  border: 1px solid #1d2240;
+  top: 150px;
+  left: 330px;
+  right: 330px;
+  bottom: 240px;
+  background: linear-gradient(#0c122e,#070b1c);
+  border: 1px solid #1d2342;
   border-radius: 20px;
-  padding: 25px;
-  box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
+  padding: 30px;
+  box-shadow: inset 0 0 35px rgba(0,0,0,0.45);
 }
+
 .center-panel h2 {
   margin: 0;
   color: #f7d791;
-  text-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
-}
-.emotion-buttons button {
-  padding: 10px 16px;
-  margin: 6px;
-  background: #11172f;
-  border: 1px solid #2b3354;
-  color: #e8ebf7;
-  border-radius: 10px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.emotion-buttons button:hover {
-  background: #1b2244;
+  font-size: 28px;
+  text-shadow: 0 0 10px rgba(255,210,120,0.3);
 }
 
-/* BOTTOM LEFT — DEXSCREEN */
-.bottom-left {
+.center-panel p {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #aab4d7;
+}
+
+.emotions button {
+  padding: 10px 22px;
+  margin: 6px;
+  background: #111a3a;
+  border: 1px solid #2d3760;
+  color: white;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.emotions button:hover {
+  background: #18224b;
+}
+
+/* ----------------- DEX LEFT BOTTOM ----------------- */
+.dex-box {
   position: absolute;
   bottom: 20px;
-  left: 310px;
-  width: 360px;
-  height: 230px;
+  left: 330px;
+  width: 320px;
+  height: 180px;
+  background: #070b1d;
+  border: 1px solid #1b213c;
   border-radius: 16px;
   overflow: hidden;
-  background: #070b1d;
-  border: 1px solid #1c223c;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  box-shadow: 0 0 35px rgba(0,0,0,.55);
 }
-.bottom-left iframe {
+.dex-box iframe {
   width: 100%;
   height: 100%;
   border: none;
-  transition: transform .25s;
-  cursor: pointer;
-}
-.bottom-left iframe:active {
-  transform: scale(1.2);
 }
 
-/* BOTTOM RIGHT — VIDEO */
-.bottom-right {
+/* ----------------- VIDEO RIGHT BOTTOM ----------------- */
+.video-box {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  width: 360px;
-  height: 230px;
-  border-radius: 16px;
-  overflow: hidden;
+  width: 320px;
+  height: 180px;
   background: #070b1d;
-  border: 1px solid #1c223c;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  border-radius: 16px;
+  border: 1px solid #1b213c;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(0,0,0,.55);
 }
-.bottom-right video {
+.video-box video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 16px;
-  transition: transform .25s;
-  cursor: pointer;
 }
-.bottom-right video:active {
-  transform: scale(1.2);
-}
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER WITH LOGO + PRICE -->
-<div class="top-header">
-  <div class="token-logo"><img src="logo-rfx2.png"></div>
-  <div class="price-block">
-    <span>Live Price</span>
-    <div class="price-val">$0.000000</div>
-  </div>
-  <div class="price-block">
-    <span>Market Cap</span>
-    <div class="price-val">$0</div>
-  </div>
-  <div class="price-block">
-    <span>Total Supply</span>
-    <div class="price-val">2,000,000</div>
-  </div>
-</div>
-
-<!-- LEFT PANEL -->
+<!-- LEFT SIDEBAR -->
 <div class="sidebar">
-  <div class="title-glow">ReflexCoin 2.0</div>
-  <p style="color:#9ba3c7; margin-top:5px;">RFX2 • Solana</p>
+  <h1>ReflexCoin<br>2.0</h1>
+  <p>RFX2 • Solana</p>
 
   <button onclick="addToPhantom()">Add RFX2 to Phantom</button>
   <button onclick="window.open('https://raydium.io/swap/?inputMint=sol&outputMint=43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z')">Buy on Raydium</button>
@@ -218,85 +194,78 @@ body {
   <button onclick="window.open('https://x.com/0Rfx243906')">X / Twitter</button>
   <button onclick="window.open('https://github.com/ReflexCoin2-0-Project/reflexcoin-metadata')">GitHub Repo</button>
 
-  <p style="color:#6f7694; font-size:12px; margin-top:20px;">
-    ReflexCoin 2.0 is an experimental emotional-value token. Always verify the mint address.
+  <p style="font-size:12px; margin-top:25px;">
+    ReflexCoin 2.0 is an experimental emotional-value token. Always verify the official mint address.
   </p>
+</div>
+
+<!-- HEADER -->
+<div class="header-box">
+  <div class="header-logo">
+    <img src="logo-rfx2.png" />
+  </div>
+
+  <div class="price-box">
+    <div class="price-title">Live Price</div>
+    <div class="price-value" id="livePrice">$0.000000</div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-title">Market Cap</div>
+    <div class="price-value" id="mcap">$0</div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-title">Total Supply</div>
+    <div class="price-value">2,000,000</div>
+  </div>
 </div>
 
 <!-- CENTER PANEL -->
 <div class="center-panel">
   <h2>Emotional Value System</h2>
-  <p style="color:#aab3d8; font-size:15px; margin-top:10px;">
-    ReflexCoin 2.0 transforms emotions into symbolic digital value.
-    Record your emotion — it may influence future symbolic airdrop experiments.
-  </p>
+  <p>Record your emotion — it may influence future symbolic airdrop experiments.</p>
 
-  <div class="emotion-buttons" style="margin-top:20px;">
+  <div class="emotions">
     <button>😄 Happy</button>
     <button>😡 Angry</button>
     <button>😢 Sad</button>
     <button>🔥 Motivated</button>
     <button>❤️ Loved</button>
   </div>
-
-  <p style="color:#6f7694; font-size:12px; margin-top:20px;">
-    Emotional logs are experimental and have no guaranteed value.
-  </p>
 </div>
 
-<!-- BOTTOM LEFT — DEXSCREEN -->
-<div class="bottom-left">
+<!-- DEX LEFT BOTTOM -->
+<div class="dex-box">
   <iframe src="https://dexscreener.com/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z?embed=1"></iframe>
 </div>
 
-<!-- BOTTOM RIGHT — VIDEO -->
-<div class="bottom-right">
-  <video src="rfx2-video.mp4" controls></video>
+<!-- VIDEO RIGHT BOTTOM -->
+<div class="video-box">
+  <video src="rfx2-video.mp4" autoplay muted loop></video>
 </div>
 
 <script>
-/* === LIVE PRICE LOADER (DEXSCREENER API) === */
+/* Live Price Loader */
 async function loadPrice() {
   try {
     const res = await fetch("https://api.dexscreener.com/tokens/v1/solana/43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z");
     const data = await res.json();
     const p = data[0];
-    document.querySelectorAll('.price-block .price-val')[0].innerText = `$${Number(p.priceUsd).toFixed(6)}`;
-    document.querySelectorAll('.price-block .price-val')[1].innerText = `$${Number(p.marketCap || 0).toLocaleString()}`;
-  } catch(e) {
-    console.log("Price error", e);
-  }
+    document.getElementById("livePrice").innerText = "$" + Number(p.priceUsd).toFixed(6);
+    document.getElementById("mcap").innerText = "$" + Number(p.marketCap).toLocaleString();
+  } catch (err) {}
 }
 loadPrice();
 setInterval(loadPrice, 30000);
 
-/* === ADD TO PHANTOM === */
+/* Add to Phantom */
 async function addToPhantom() {
-  if (!window.phantom?.solana?.isPhantom)
-    return alert("Phantom Wallet not detected.");
-
-  try {
-    await window.phantom.solana.request({
-      method: "wallet_watchAsset",
-      params: {
-        type: "spl-token",
-        address: "43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z"
-      }
-    });
-    alert("RFX2 added to Phantom!");
-  } catch(e) {
-    alert("Error adding token.");
-  }
-}
-
-/* === EXPANDABLE POPUPS === */
-function expand(el){
-  el.style.transform='scale(1.4)';
-  el.style.zIndex='50';
-}
-function shrink(el){
-  el.style.transform='scale(1)';
-  el.style.zIndex='1';
+  if (!window.phantom?.solana?.isPhantom) return alert("Phantom not found.");
+  await window.phantom.solana.request({
+    method: "wallet_watchAsset",
+    params: { type: "spl-token", address: "43qV5jUhNEtsPeoLzEZyRLYA5tUSNTo2rgVv8mCJsx9z" }
+  });
 }
 </script>
 
